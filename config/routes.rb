@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :carts
+
+  resources :orders
+
   ActiveAdmin.routes(self)
   resources :products
   resources :profiles
