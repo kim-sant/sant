@@ -177,6 +177,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  mail (= 2.6.1)
   rails (= 4.1.6)
   rolify!
   sass-rails (~> 4.0.3)

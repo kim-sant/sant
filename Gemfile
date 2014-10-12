@@ -16,3 +16,4 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancancan', '~> 1.9'
 gem "rolify",        :git => "git://github.com/EppO/rolify.git"
+gem "mail", "2.6.1"
