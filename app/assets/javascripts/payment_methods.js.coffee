@@ -1,12 +1,16 @@
 jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-  payment_method.setupForm()
+  subscription.setupForm()
 
 payment_method =
   setupForm: ->
     $('#new_payment_method').submit ->
-      $('input[type=submit]').attr('disabled', true)
-      payment_method.processCard()
+      $('input[type=submit]').prop('disabled', true)
+      if $('#card_number').length
+        payment_method.processCard()
+        false
+      else
+        true
   
   processCard: ->
     card =
@@ -18,6 +22,8 @@ payment_method =
   
   handleStripeResponse: (status, response) ->
     if status == 200
-      alert(response.id)
+      $('#payment_method_stripe_card_token').val(response.id)
+      $('#new_payment_method')[0].submit()
     else
-      alert(response.error.message)
+      $('#stripe_error').text(response.error.message)
+      $('input[type=submit]').prop('disabled', false)

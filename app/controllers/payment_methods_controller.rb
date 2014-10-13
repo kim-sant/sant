@@ -8,4 +8,20 @@ class PaymentMethodsController < InheritedResources::Base
     end
   end
   
+  def create
+    @payment_method = PaymentMethod.new(payment_method_params)
+    user = current_user
+    if @payment_method.save_with_payment(user)
+      redirect_to @payment_method, :notice => "Thank you for subscribing!"
+    else
+      render :new
+    end
+  end
+  
+  private
+
+  def payment_method_params
+    params.require(:payment_method).permit(:stripe_customer_token, :last_4_digits, :profile_id, :stripe_card_token)
+  end
+  
 end
