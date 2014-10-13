@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013145025) do
+ActiveRecord::Schema.define(version: 20141013161454) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(version: 20141013145025) do
     t.datetime "updated_at"
   end
 
+  create_table "payment_methods", force: true do |t|
+    t.string   "stripe_customer_token"
+    t.string   "last_4_digits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.string   "name"
     t.decimal  "price"
@@ -86,6 +93,7 @@ ActiveRecord::Schema.define(version: 20141013145025) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "roles", force: true do |t|
