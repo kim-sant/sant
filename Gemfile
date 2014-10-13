@@ -20,3 +20,5 @@ gem "mail", "2.6.1"
 gem "rmagick", :require => 'RMagick'
 gem "carrierwave"
 gem "fog"
+gem "stripe"
+gem "stripe_event"
