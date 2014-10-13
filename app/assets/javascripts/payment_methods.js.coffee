@@ -1,6 +1,6 @@
 jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-  subscription.setupForm()
+  payment_method.setupForm()
 
 payment_method =
   setupForm: ->
