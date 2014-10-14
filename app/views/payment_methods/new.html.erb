@@ -1,5 +1,37 @@
-<h1>New payment_method</h1>
+<div style="margin: 0 auto; width: 300px;">
+	<%= form_for @payment_method do |f| %>
+	  <% if @payment_method.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@payment_method.errors.count, "error") %> prohibited this payment_method from being saved:</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', payment_methods_path %>
+	      <ul>
+	      <% @payment_method.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+  
+	  <%= f.hidden_field :stripe_card_token %>
+  
+	  <div class="field">
+	      <%= label_tag :card_number, "Credit Card Number " %><br />
+	      <%= text_field_tag :card_number, nil, name: nil %>
+	  </div>
+	  <br />
+	  <div class="field">
+	      <%= label_tag :card_code, "Security Code on Card (CVV)" %><br />
+	      <%= text_field_tag :card_code, nil, name: nil %>
+	  </div>
+	  <br />
+	  <div class="field">
+	    <%= label_tag :card_month, "Card Expiration" %><br />
+	    <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+	    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
+	  </div>
+	  <br />
+	  <div class="actions">
+	    <%= f.submit "Submit", class: "btn btn-primary" %>
+	  </div>
+	<% end %>
+</div>
