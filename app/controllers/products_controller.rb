@@ -9,4 +9,22 @@ class ProductsController < InheritedResources::Base
     @product = Product.find_by_slug(params[:id])
   end
   
+  def add_product_to_cart
+    profile = current_user.profile
+    product = Product.find(params[:product_id])
+    if Cart.where(profile_id: profile.id).present?
+      cart = Cart.where(profile_id: profile.id).first
+    else
+      cart = Cart.new
+      cart.profile_id = profile.id
+      cart.save
+    end
+    selection = CartSelection.new
+    selection.cart_id = cart.id
+    selection.product_id = product.id
+    selection.quantity
+    selection.save
+    redirect_to root_url, notice: "Successfully added #{product.name} to cart."
+  end
+  
 end

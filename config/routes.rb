@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :payment_methods
-
+  resources :payment_methods, :only => [:new, :create]
   resources :carts
-
   resources :orders
-
-  ActiveAdmin.routes(self)
   resources :products
   resources :profiles
+  
+  post '/add_product_to_cart', :to => 'products#add_product_to_cart', as: :add_product_to_cart
 
   devise_for :users
+  
+  ActiveAdmin.routes(self)
   
   root to: "homepage#index"
 
