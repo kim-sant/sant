@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :orders
   resources :products
-  resources :profiles
+  resources :customers
   
   post '/add_product_to_cart', :to => 'products#add_product_to_cart', as: :add_product_to_cart
 

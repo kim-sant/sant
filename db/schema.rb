@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015164637) do
+ActiveRecord::Schema.define(version: 20141015172732) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141015164637) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "customer_id"
   end
 
   create_table "cart_selections", force: true do |t|
@@ -47,9 +48,16 @@ ActiveRecord::Schema.define(version: 20141015164637) do
   end
 
   create_table "carts", force: true do |t|
-    t.integer  "profile_id"
+    t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "order_selections", force: true do |t|
@@ -61,7 +69,7 @@ ActiveRecord::Schema.define(version: 20141015164637) do
   end
 
   create_table "orders", force: true do |t|
-    t.integer  "profile_id"
+    t.integer  "customer_id"
     t.string   "order_number"
     t.float    "subtotal"
     t.datetime "created_at"
@@ -86,17 +94,10 @@ ActiveRecord::Schema.define(version: 20141015164637) do
   end
 
   create_table "profile_addresses", force: true do |t|
-    t.integer  "profile_id"
+    t.integer  "customer_id"
     t.integer  "address_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "profiles", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "roles", force: true do |t|
