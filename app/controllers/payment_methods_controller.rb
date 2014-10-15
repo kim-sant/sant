@@ -21,7 +21,7 @@ class PaymentMethodsController < InheritedResources::Base
   private
 
   def payment_method_params
-    params.require(:payment_method).permit(:stripe_customer_token, :last_4_digits, :profile_id, :stripe_card_token)
+    params.require(:payment_method).permit(:stripe_customer_token, :last_4_digits, :customer_id, :stripe_card_token)
   end
   
 end

@@ -3,17 +3,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_one :profile 
+  has_one :customer 
   after_create :registration_confirmation
-  after_create :create_profile
+  after_create :create_customer
   
   def registration_confirmation
     UserMailer.registration_confirmation(self).deliver
   end
   
-  def create_profile
-    profile = Profile.new
-    profile.user_id = self.id
-    profile.save
+  def create_customer
+    customer = Customer.new
+    customer.user_id = self.id
+    customer.save
   end
 end

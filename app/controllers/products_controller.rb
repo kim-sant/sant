@@ -10,13 +10,13 @@ class ProductsController < InheritedResources::Base
   end
   
   def add_product_to_cart
-    profile = current_user.profile
+    customer = current_user.customer
     product = Product.find(params[:product_id])
-    if Cart.where(profile_id: profile.id).present?
-      cart = Cart.where(profile_id: profile.id).first
+    if Cart.where(customer_id: customer.id).present?
+      cart = Cart.where(customer_id: customer.id).first
     else
       cart = Cart.new
-      cart.profile_id = profile.id
+      cart.customer_id = customer.id
       cart.save
     end
     selection = CartSelection.new

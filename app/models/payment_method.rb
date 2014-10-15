@@ -6,7 +6,7 @@ class PaymentMethod < ActiveRecord::Base
     if valid?
       customer = Stripe::Customer.create(description: user.email, plan: 1, card: stripe_card_token)
       self.stripe_customer_token = customer.id
-      self.profile_id = user.profile.id
+      self.customer_id = user.customer.id
       save!
     end
   rescue Stripe::InvalidRequestError => e
