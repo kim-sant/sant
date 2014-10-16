@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :orders
   resources :products
   resources :customers
-  
-  post '/add_product_to_cart', :to => 'products#add_product_to_cart', as: :add_product_to_cart
+
+  get '/cart', to: 'customers#cart', as: :customer_cart
+  post '/add_product_to_cart', to: 'products#add_product_to_cart', as: :add_product_to_cart
+  post '/checkout', to: 'customers#checkout', as: :checkout
 
   devise_for :users
   

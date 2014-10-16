@@ -10,19 +10,22 @@ class ProductsController < InheritedResources::Base
   end
   
   def add_product_to_cart
-    customer = current_user.customer
     product = Product.find(params[:product_id])
-    if Cart.where(customer_id: customer.id).present?
-      cart = Cart.where(customer_id: customer.id).first
+    if user_signed_in?
+      customer = current_user.customer
+      cart = customer.cart
     else
-      cart = Cart.new
-      cart.customer_id = customer.id
-      cart.save
+      if session[:cart_id].present? 
+        cart = Cart.find(session[:cart_id])
+      else
+        cart = Cart.create
+        session[:cart_id] = cart.id
+      end
     end
     selection = CartSelection.new
     selection.cart_id = cart.id
     selection.product_id = product.id
-    selection.quantity
+    selection.quantity = 1
     selection.save
     redirect_to root_url, notice: "Successfully added #{product.name} to cart."
   end

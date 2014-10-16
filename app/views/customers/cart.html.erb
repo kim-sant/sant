@@ -1,0 +1,11 @@
+<% if @cart.cart_selections.present? %>
+	<p>Products in cart</p>
+	<% @cart.cart_selections.each do |selection| %>
+		<%= Product.find(selection.product_id).name %> - <%= selection.quantity %>
+		<br />
+	<% end %>
+	<br />
+	<%= button_to 'Checkout', {action: 'checkout', cart_id: @cart.id}, {class: 'btn btn-primary'} %>	
+<% else %>
+	<p>Your cart is empty</p>
+<% end %>
