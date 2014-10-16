@@ -1,9 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Profile:</strong>
-  <%= @cart.profile_id %>
-</p>
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<div class="form-view">
+	<% if @cart.cart_selections.present? %>
+		<% @cart.cart_selections.each do |selection| %>
+			<%= Product.find(selection.product_id).name %> (<%= number_to_currency(selection.product.price, precision: 2) %>)<br />
+			<span style="float: left;">quantity: <%= selection.quantity %></span>
+			<span style="float: right;"><%= number_to_currency(selection.quantity*selection.product.price, precision: 2) %></span>
+			<br /><br />
+		<% end %>
+		<span style="float: left;">Subtotal: <span style="float: right;"><%= number_to_currency(@cart.subtotal, precision: 2) %></span>
+		<br /><br /><br />
+		<%= button_to 'Checkout', {action: 'checkout', cart_id: @cart.id}, {class: 'btn btn-primary', style: "width: 300px"} %>	
+	<% else %>
+		<p style="text-align: center; width: 300px;">Your cart is empty</p>
+	<% end %>
+</div>

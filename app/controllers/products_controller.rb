@@ -15,7 +15,7 @@ class ProductsController < InheritedResources::Base
       customer = current_user.customer
       cart = customer.cart
     else
-      if session[:cart_id].present? 
+      if session[:cart_id].present? && Cart.where()
         cart = Cart.find(session[:cart_id])
       else
         cart = Cart.create

@@ -1,17 +1,16 @@
 class CartsController < InheritedResources::Base
   
-  def cart
+  def show
     if user_signed_in?
       @customer = current_user.customer
-    if @customer.cart.present?
-      @cart = @customer.cart
+      @cart = Cart.where(customer_id: @customer.id).first
     else
-      
+      @cart = Cart.find(session[:cart_id])
     end
   end
   
   def checkout
-    if 
+
   end
   
 end
