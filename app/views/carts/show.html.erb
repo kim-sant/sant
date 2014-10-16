@@ -1,11 +1,17 @@
-<div class="form-view">
+<div class="cart-view">
 	<% if @cart.cart_selections.present? %>
 		<% @cart.cart_selections.each do |selection| %>
-			<%= Product.find(selection.product_id).name %> (<%= number_to_currency(selection.product.price, precision: 2) %>)<br />
-			<span style="float: left;">quantity: <%= selection.quantity %></span>
-			<span style="float: right;"><%= number_to_currency(selection.quantity*selection.product.price, precision: 2) %></span>
+			<span style="font-weight: bold;"><%= Product.find(selection.product_id).name.titleize %></span> (<%= number_to_currency(selection.product.price, precision: 2) %>)<br />
+			<div style="clear: both;">
+				<span style="float: left;">quantity: <%= selection.quantity %></span>
+				<span style="float: right;"><%= number_to_currency(selection.quantity*selection.product.price, precision: 2) %></span>
+			</div>
+			<div style="clear: both; margin-top: 5px;">
+				<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id}, {method: :post, class: 'btn btn-primary btn-add'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id}, {method: :post, class: 'btn btn-primary btn-subtract'} %>
+			</div>
 			<br /><br />
 		<% end %>
+		<br />
 		<span style="float: left;">Subtotal: <span style="float: right;"><%= number_to_currency(@cart.subtotal, precision: 2) %></span>
 		<br /><br /><br />
 		<%= button_to 'Checkout', {action: 'checkout', cart_id: @cart.id}, {class: 'btn btn-primary', style: "width: 300px"} %>	
