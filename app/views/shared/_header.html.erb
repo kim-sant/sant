@@ -20,7 +20,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
 		<% if current_uri != "/products" %>
-			<li><%= link_to "Products", products_path %>
+			<li><%= link_to "Products", products_path %></li>
 		<% end %>
 		<li>
 			<% if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present? %>
