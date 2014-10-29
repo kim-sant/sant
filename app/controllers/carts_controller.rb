@@ -29,7 +29,7 @@ class CartsController < InheritedResources::Base
   
   def checkout
     if user_signed_in?
-      redirect_to delivery_info_url
+      redirect_to new_url_path
     else
       redirect_to new_user_session_path
     end
