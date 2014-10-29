@@ -30,4 +30,10 @@ class ProductsController < InheritedResources::Base
     redirect_to root_url, notice: "Successfully added #{product.name} to cart."
   end
   
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :price, :image)
+  end
+  
 end
