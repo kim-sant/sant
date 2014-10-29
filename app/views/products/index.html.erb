@@ -8,7 +8,8 @@
 				<br />
 	        	<span style="font-size: 16px;"><%= number_to_currency(product.price, precision: 2) %></span>
 				<br />
-				 <%= button_to 'Buy', {:action => 'add_product_to_cart', product_id: product.id}, {class: 'btn btn-primary'} %>
+				<br />
+				 <%= button_to 'Add to cart', {:action => 'add_product_to_cart', product_id: product.id}, {class: 'btn btn-primary'} %>
 			</td>
 			<td style="text-align: right; width: 200px;"><%= image_tag(product.image_url(:thumb), style: "display: inline-block;") %></td>
 	      </tr>
