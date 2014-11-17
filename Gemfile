@@ -35,3 +35,5 @@ gem "fog"
 gem "stripe"
 gem "stripe_event"
 gem "friendly_id", "~> 5.0.0"
+gem "simple_form",          ">= 2.1.0"
+gem 'formtastic'
