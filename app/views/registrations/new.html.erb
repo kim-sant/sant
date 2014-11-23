@@ -11,6 +11,9 @@
 	  <div><%= f.label :password_confirmation %><br />
 	    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 	  <br />
+	  <% if @callback.present? %>
+		  <%= f.hidden_field :callback, value: @callback %>
+	  <% end %>
 	  <div><%= f.submit "Register", class: "btn btn-primary" %></div>
 	<% end %>
 	<div>

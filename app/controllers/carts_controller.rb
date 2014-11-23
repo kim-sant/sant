@@ -52,7 +52,7 @@ class CartsController < InheritedResources::Base
     if user_signed_in?
       redirect_to step_1_path
     else
-      redirect_to controller: 'devise/registrations', action: 'new', callback: 'checkout'
+      redirect_to controller: 'registrations', action: 'new', callback: 'checkout'
     end
   end
   
