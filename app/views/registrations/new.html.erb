@@ -13,4 +13,11 @@
 	  <br />
 	  <div><%= f.submit "Register", class: "btn btn-primary" %></div>
 	<% end %>
+	<div>
+		<% if @callback.present? %>
+			<%= link_to "Sign-in", controller: 'sessions', action: 'new', callback: @callback %>
+		<% else %>
+			<%= link_to "Sign-in", new_user_session_path %>
+		<% end %>
+	</div>
 </div>

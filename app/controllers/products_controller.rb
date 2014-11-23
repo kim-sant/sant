@@ -25,6 +25,8 @@ class ProductsController < InheritedResources::Base
       else
         @cart = Cart.where(customer_id: @customer.id).first
       end
+    elsif session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
+      @cart = Cart.find(session[:cart_id])
     end
   end
   

@@ -50,10 +50,14 @@ class CartsController < InheritedResources::Base
   
   def checkout
     if user_signed_in?
-      redirect_to "/users/sign_in"
+      redirect_to step_1_path
     else
-      redirect_to new_user_session_path
+      redirect_to controller: 'devise/registrations', action: 'new', callback: 'checkout'
     end
+  end
+  
+  def step_1
+    
   end
   
   def delivery_info

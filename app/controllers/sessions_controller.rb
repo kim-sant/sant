@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class SessionsController < Devise::SessionsController
 
   def new
     if params[:callback].present?

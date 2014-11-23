@@ -9,7 +9,7 @@
 	        	<span style="font-size: 16px;"><%= number_to_currency(product.price, precision: 2) %></span>
 				<br />
 				<br />
-				<% if @customer.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
+				<% if @cart.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
 					<% selection = CartSelection.where(product_id: product.id).where(cart_id: @cart.id).first %>
 					<div style="clear: both;">
 						<span style="float: left; margin: 3px 0 10px 0;">quantity in cart: <%= selection.quantity %></span>
