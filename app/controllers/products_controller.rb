@@ -9,6 +9,25 @@ class ProductsController < InheritedResources::Base
     @product = Product.find_by_slug(params[:id])
   end
   
+  def index
+    @products = Product.all
+    if user_signed_in?
+      @customer = current_user.customer
+      if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
+  		  @cart = Cart.find(session[:cart_id])
+        if @customer.cart.present? && @customer.cart != @cart
+          cart = Cart.find(@customer.cart)
+          cart.destroy
+        end
+        @cart.customer_id = @customer.id
+        @cart.save
+        session.delete(:cart_id)
+      else
+        @cart = Cart.where(customer_id: @customer.id).first
+      end
+    end
+  end
+  
   def add_product_to_cart
     product = Product.find(params[:product_id])
     if user_signed_in?
@@ -27,7 +46,7 @@ class ProductsController < InheritedResources::Base
     selection.product_id = product.id
     selection.quantity = 1
     selection.save
-    redirect_to root_url, notice: "Successfully added #{product.name} to cart."
+    redirect_to products_url, notice: "Successfully added #{product.name} to cart."
   end
   
   private

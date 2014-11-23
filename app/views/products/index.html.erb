@@ -9,7 +9,17 @@
 	        	<span style="font-size: 16px;"><%= number_to_currency(product.price, precision: 2) %></span>
 				<br />
 				<br />
-				 <%= button_to 'Add to cart', {:action => 'add_product_to_cart', product_id: product.id}, {class: 'btn btn-primary'} %>
+				<% if @customer.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
+					<% selection = CartSelection.where(product_id: product.id).where(cart_id: @cart.id).first %>
+					<div style="clear: both;">
+						<span style="float: left; margin: 3px 0 10px 0;">quantity in cart: <%= selection.quantity %></span>
+					</div>
+					<div style="clear: both; margin-top: 5px;">
+						<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-add'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-subtract'} %>
+					</div>
+				<% else %>
+					<%= button_to 'Add to cart', {:action => 'add_product_to_cart', product_id: product.id}, {class: 'btn btn-primary'} %>
+				<% end %>
 			</td>
 			<td style="text-align: right; width: 200px;"><%= image_tag(product.image_url(:thumb), style: "display: inline-block;") %></td>
 	      </tr>
