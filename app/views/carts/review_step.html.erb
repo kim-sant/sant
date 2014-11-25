@@ -1,1 +1,27 @@
 <%= render 'shared/progress_bar' %>
+
+<%= render 'shared/progress_bar' %>
+
+<div class="form-view">
+	<%= simple_form_for(@order, url: create_order_path) do |f| %>
+	  <% if @order.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this payment_method from being saved:</h2>
+
+	      <ul>
+	      <% @order.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+  
+	  <%= f.hidden_field :cart_id, value: @cart.id %>
+	  <%= f.hidden_field :payment_method_id, value: @payment_method.id %>
+	  	  
+	  <br />
+	  <div class="actions">
+	    <%= f.submit "Place Order", class: "btn btn-primary" %>
+	  </div>
+	<% end %>
+</div>
