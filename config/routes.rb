@@ -23,9 +23,10 @@ Rails.application.routes.draw do
   
   post '/address_update', to: 'addresses#address_update', as: 'address_update'
   post '/billing_update', to: 'payment_methods#billing_update', as: 'billing_update'
+  post '/create_order', to: 'orders#create_order', as: 'create_order'
   
   get 'checkout/address', to: 'carts#address_step', as: :address_step
-  get 'checkout/billing', to: 'cartss#billing_step', as: :billing_step
+  get 'checkout/billing', to: 'carts#billing_step', as: :billing_step
   get 'checkout/review', to: 'carts#review_step', as: :review_step
   
   ActiveAdmin.routes(self)

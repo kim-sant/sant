@@ -70,8 +70,8 @@ class CartsController < InheritedResources::Base
   def review_step
     @order = Order.new
     @customer = current_user.customer
-    @cart = @customer.carts.first
-    @payment_method = @customer.payment_method.first
+    @cart = @customer.cart
+    @payment_method = @customer.payment_methods.first
   end
   
 end

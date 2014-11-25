@@ -2,6 +2,7 @@ class AddressesController < InheritedResources::Base
 
   def address_update
     @address = Address.new(address_params)
+    @address.customer_id = current_user.customer.id
     if @address.save
       redirect_to billing_step_path
     else

@@ -1,7 +1,5 @@
 <%= render 'shared/progress_bar' %>
 
-<%= render 'shared/progress_bar' %>
-
 <div class="form-view">
 	<%= simple_form_for(@order, url: create_order_path) do |f| %>
 	  <% if @order.errors.any? %>

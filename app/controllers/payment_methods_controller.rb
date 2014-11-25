@@ -12,7 +12,7 @@ class PaymentMethodsController < InheritedResources::Base
     @payment_method = PaymentMethod.new(payment_method_params)
     user = current_user
     if @payment_method.save_with_payment(user)
-      redirect_to @payment_method, :notice => "Thank you for subscribing!"
+      redirect_to @payment_method, notice: "Thank you for subscribing!"
     else
       render :new
     end
@@ -22,7 +22,7 @@ class PaymentMethodsController < InheritedResources::Base
     @payment_method = PaymentMethod.new(payment_method_params)
     user = current_user
     if @payment_method.save_with_payment(user)
-      redirect_to review_step_path, :notice => "Your payment information has been saved."
+      redirect_to review_step_path, notice: "Your payment information has been saved.", payment_method_id: @payment_method.id
     else
       render :billing_step
     end

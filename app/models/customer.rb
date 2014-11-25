@@ -2,6 +2,7 @@ class Customer < ActiveRecord::Base
   
   belongs_to :user
   has_many :addresses
+  has_many :payment_methods
   has_one :cart
   has_many :orders
   
