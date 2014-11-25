@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :payment_methods, :only => [:new, :create]
   resources :carts
   resources :orders
   resources :products
   resources :customers
+  resources :addresses
+  
+  resources :payment_methods do
+    get 'checkout/billing', on: :new
+  end
 
   devise_for :users,
              :controllers => { registrations: 'registrations', sessions: 'sessions' }
@@ -17,8 +21,12 @@ Rails.application.routes.draw do
   post 'decrease_quantity', to: 'carts#decrease_quantity', as: :descrease_quantity
   post 'checkout', to: 'carts#checkout', as: :checkout
   
-  get 'step_1', to: 'carts#step_1', as: :step_1
-  get 'step_2', to: 'carts#step_2', as: :step_2
+  post '/address_update', to: 'addresses#address_update', as: 'address_update'
+  post '/billing_update', to: 'payment_methods#billing_update', as: 'billing_update'
+  
+  get 'checkout/address', to: 'carts#address_step', as: :address_step
+  get 'checkout/billing', to: 'cartss#billing_step', as: :billing_step
+  get 'checkout/review', to: 'carts#review_step', as: :review_step
   
   ActiveAdmin.routes(self)
   

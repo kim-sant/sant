@@ -18,6 +18,16 @@ class PaymentMethodsController < InheritedResources::Base
     end
   end
   
+  def billing_update
+    @payment_method = PaymentMethod.new(payment_method_params)
+    user = current_user
+    if @payment_method.save_with_payment(user)
+      redirect_to review_step_path, :notice => "Your payment information has been saved."
+    else
+      render :billing_step
+    end
+  end
+  
   private
 
   def payment_method_params

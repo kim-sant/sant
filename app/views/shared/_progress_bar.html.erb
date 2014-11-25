@@ -1,0 +1,25 @@
+<% @current_uri = request.env['PATH_INFO'] %>
+
+<div style="height: 40px; margin: 40px auto 80px auto; width: 754px;">
+	<% if @current_uri == "/checkout/address" %>
+		<span style="background-color: darkgray; color: white; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+	<% else %>
+		<span style="background-color: lightgray; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+	<% end %>
+		Address
+	</span>
+	<% if @current_uri == "/checkout/billing" %>
+		<span style="background-color: darkgray; color: white; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+	<% else %>
+		<span style="background-color: lightgray; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+	<% end %>
+		Billing
+	</span>
+	<% if @current_uri == "/checkout/review" %>
+		<span style="background-color: darkgray; color: white; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+	<% else %>
+		<span style="background-color: lightgray; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+	<% end %>
+		Review
+	</span>
+</div>

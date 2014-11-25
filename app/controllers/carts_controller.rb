@@ -17,6 +17,8 @@ class CartsController < InheritedResources::Base
       end
     elsif session[:cart_id].present?
       @cart = Cart.find(session[:cart_id])
+    else
+      redirect_to products_url
     end
   end
   
@@ -50,22 +52,24 @@ class CartsController < InheritedResources::Base
   
   def checkout
     if user_signed_in?
-      redirect_to step_1_path
+      redirect_to address_step_path
     else
       redirect_to controller: 'registrations', action: 'new', callback: 'checkout'
     end
   end
   
-  def step_1
-    
+  def address_step
+    @address = Address.new
+    @customer = current_user.customer
   end
   
-  def delivery_info
-    
+  def billing_step
+    @payment_method = PaymentMethod.new
   end
   
-  def payment_info
-    
+  def review_step
+    @order = Order.new
+    @customer = current_user.customer
   end
   
 end

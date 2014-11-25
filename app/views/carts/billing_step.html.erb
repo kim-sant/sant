@@ -1,5 +1,7 @@
+<%= render 'shared/progress_bar' %>
+
 <div class="form-view">
-	<%= form_for @payment_method do |f| %>
+	<%= simple_form_for(@payment_method, url: billing_update_path) do |f| %>
 	  <% if @payment_method.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@payment_method.errors.count, "error") %> prohibited this payment_method from being saved:</h2>
