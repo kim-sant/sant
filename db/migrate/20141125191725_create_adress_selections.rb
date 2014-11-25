@@ -1,6 +1,6 @@
-class CreateAdressSelections < ActiveRecord::Migration
+class CreateAddressSelections < ActiveRecord::Migration
   def change
-    create_table :adress_selections do |t|
+    create_table :address_selections do |t|
       t.integer :address_id
       t.integer :order_id
 
