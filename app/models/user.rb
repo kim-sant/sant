@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
     customer.user_id = self.id
     customer.save
   end
+  
+  def charge(amount)
+    Stripe::Charge.create(
+        :amount => (amount * 100).to_i, # in cents
+        :currency => "usd",
+        :customer => self.customer.payment_method.stripe_customer_token
+    )
+  end
 end

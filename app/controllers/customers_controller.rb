@@ -1,10 +1,12 @@
 class CustomersController < InheritedResources::Base
   
   def show
-    if !current_user.present?
-      redirect_to root_url
+    user = current_user
+    if user.present? && user.customer.address.present?
+      @customer = current_user.customer
+      @address = @customer.address
     else
-      @profile = current_user.customer
+      redirect_to root_url
     end
   end
   

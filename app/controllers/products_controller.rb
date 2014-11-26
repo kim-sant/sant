@@ -48,7 +48,7 @@ class ProductsController < InheritedResources::Base
     selection.product_id = product.id
     selection.quantity = 1
     selection.save
-    redirect_to products_url, notice: "Successfully added #{product.name} to cart."
+    redirect_to products_url
   end
   
   private

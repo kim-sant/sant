@@ -9,4 +9,6 @@ ActiveAdmin.setup do |config|
   
   config.batch_actions = true
 
+  config.show_comments_in_menu = false
+
 end

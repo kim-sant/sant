@@ -10,4 +10,12 @@ class Cart < ActiveRecord::Base
     end
     total
   end
+  
+  def items
+    count = 0
+    self.cart_selections.each do |selection|
+      count = count + selection.quantity
+    end
+    count
+  end
 end

@@ -20,6 +20,7 @@ class PaymentMethodsController < InheritedResources::Base
   
   def billing_update
     @payment_method = PaymentMethod.new(payment_method_params)
+    @payment_method.default = true
     user = current_user
     if @payment_method.save_with_payment(user)
       redirect_to review_step_path, notice: "Your payment information has been saved.", payment_method_id: @payment_method.id

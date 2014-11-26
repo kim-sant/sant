@@ -14,7 +14,7 @@ class AddressesController < InheritedResources::Base
   private
 
   def address_params
-    params.require(:address).permit(:line_1, :line_2, :city, :state, :zip)
+    params.require(:address).permit(:first_name, :last_name, :line_1, :line_2, :city, :state, :zip, :default)
   end
   
 end

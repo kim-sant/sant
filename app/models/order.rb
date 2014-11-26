@@ -29,4 +29,11 @@ class Order < ActiveRecord::Base
     self.save
   end
   
+  def items
+    count = 0
+    self.order_selections.each do |selection|
+      count = count + selection.quantity
+    end
+    count
+  end
 end

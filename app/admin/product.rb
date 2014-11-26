@@ -1,4 +1,5 @@
 ActiveAdmin.register Product do
+  menu :priority => 3
   
   permit_params :name, :price , :image , :slug
   

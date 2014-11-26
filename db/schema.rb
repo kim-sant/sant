@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125200753) do
+ActiveRecord::Schema.define(version: 20141126191201) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 20141125200753) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "customer_id"
+    t.boolean  "default"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "cart_selections", force: true do |t|
@@ -90,6 +93,7 @@ ActiveRecord::Schema.define(version: 20141125200753) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "customer_id"
+    t.boolean  "default"
   end
 
   create_table "payment_selections", force: true do |t|
@@ -125,6 +129,13 @@ ActiveRecord::Schema.define(version: 20141125200753) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

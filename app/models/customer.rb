@@ -8,6 +8,14 @@ class Customer < ActiveRecord::Base
   
   after_create :create_cart
   
+  def address
+    Address.where(customer_id: self.id).where(default: true).first
+  end
+  
+  def payment_method
+    PaymentMethod.where(customer_id: self.id).where(default: true).first
+  end
+  
   def create_cart
     cart = Cart.new
     cart.customer_id = self.id
