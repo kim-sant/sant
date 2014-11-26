@@ -20,6 +20,13 @@ ActiveAdmin.register User do
   filter :email
   
   show do
+    panel "Subscriptions" do
+      table_for(user.customer.subscriptions) do |b|
+        b.column("Product") { |s| Product.find(s.product_id).name }
+        b.column("Type") { |s| "Monthly" }
+        b.column("Deliveries") { |s| "5" }
+      end
+    end
     panel "Order History" do
       table_for(user.customer.orders) do |b|
         b.column("Order#") { |order| link_to order.order_number, admin_order_path(order) }
@@ -35,20 +42,10 @@ ActiveAdmin.register User do
   sidebar :customer_information, :only => :show do
     attributes_table_for user.customer do
       if user.customer.address.present?
-        row("Name") { "#{user.customer.first_name.capitalize} #{user.customer.last_name.capitalize}" }
+        row("Name") { "#{user.customer.address.first_name.capitalize} #{user.customer.address.last_name.capitalize}" }
         row("Address") { "#{user.customer.address.line_1} #{user.customer.address.line_2}" }
         row("City") { "#{user.customer.address.city}, #{user.customer.address.state}" }
         row("Zip") { user.customer.address.zip }
-      end
-    end
-  end
-  
-  sidebar :subscriptions, :only => :show do
-    attributes_table_for user.customer do
-      if user.customer.subscriptions.present?
-        user.customer.subscriptions.each do |s|
-          row("Product") { Product.find(s.product_id).name }
-        end
       end
     end
   end
