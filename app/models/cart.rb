@@ -6,7 +6,7 @@ class Cart < ActiveRecord::Base
   def subtotal
     total = 0
     self.cart_selections.each do |selection|
-      total = total + selection.product.price*selection.quantity
+      total = (total + (selection.product.price*selection.quantity)).to_f
     end
     total
   end

@@ -1,6 +1,8 @@
 <%= render 'shared/progress_bar' %>
 
 <div class="form-view">
+	<%= "customer id: #{@customer.id}" %>
+	<%= "cart id: #{@cart.id}" %>
 	<%= simple_form_for(@order, url: create_order_path) do |f| %>
 	  <% if @order.errors.any? %>
 	    <div id="error_explanation">

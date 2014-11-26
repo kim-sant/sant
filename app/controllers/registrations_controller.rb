@@ -14,6 +14,10 @@ class RegistrationsController < Devise::RegistrationsController
       resource_saved = resource.save
       yield resource if block_given?
       if resource_saved
+        cart = Cart.find(session[:cart_id])
+        cart.customer_id = resource.customer.id
+        cart.save
+        session.delete(:cart_id)
         if resource.active_for_authentication?
           set_flash_message :notice, :signed_up if is_flashing_format?
           sign_up(resource_name, resource)
@@ -29,7 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
         if @validatable
           @minimum_password_length = resource_class.password_length.min
         end
-        respond_with resource
+        respond_with resource, callback: "checkout"
       end
     else
       super

@@ -6,7 +6,7 @@ class CartSelection < ActiveRecord::Base
   def order_copy(order)
     selection = OrderSelection.new
     selection.order_id = order.id
-    selection.product_id = self.production_id
+    selection.product_id = self.product_id
     selection.quantity = self.quantity
     selection.save
   end

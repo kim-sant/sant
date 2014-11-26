@@ -25,7 +25,7 @@ class Order < ActiveRecord::Base
     self.order_selections.each do |selection|
       total = total + (selection.product.price * selection.quantity)
     end
-    self.subtotal = total
+    self.subtotal = total.to_f
     self.save
   end
   
