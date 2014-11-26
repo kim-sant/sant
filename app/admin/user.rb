@@ -34,9 +34,21 @@ ActiveAdmin.register User do
   
   sidebar :customer_information, :only => :show do
     attributes_table_for user.customer do
-      if user.customer.name.present?
-        row("Name") { user.customer.name.titleize }
-        row("Address") { user.customer.address.line_1 }
+      if user.customer.address.present?
+        row("Name") { "#{user.customer.first_name.capitalize} #{user.customer.last_name.capitalize}" }
+        row("Address") { "#{user.customer.address.line_1} #{user.customer.address.line_2}" }
+        row("City") { "#{user.customer.address.city}, #{user.customer.address.state}" }
+        row("Zip") { user.customer.address.zip }
+      end
+    end
+  end
+  
+  sidebar :subscriptions, :only => :show do
+    attributes_table_for user.customer do
+      if user.customer.subscriptions.present?
+        user.customer.subscriptions.each do |s|
+          row("Product") { Product.find(s.product_id).name }
+        end
       end
     end
   end

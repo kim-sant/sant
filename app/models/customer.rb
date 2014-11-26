@@ -5,6 +5,7 @@ class Customer < ActiveRecord::Base
   has_many :payment_methods
   has_one :cart
   has_many :orders
+  has_many :subscriptions
   
   after_create :create_cart
   

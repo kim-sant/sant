@@ -1,8 +1,11 @@
 <%= render 'shared/progress_bar' %>
 
 <div class="form-view">
-	<%= "customer id: #{@customer.id}" %>
-	<%= "cart id: #{@cart.id}" %>
+	
+	Total: <%= number_to_currency(@cart.subtotal, precision: 2) %>
+	<br />
+	<br />
+
 	<%= simple_form_for(@order, url: create_order_path) do |f| %>
 	  <% if @order.errors.any? %>
 	    <div id="error_explanation">
@@ -16,11 +19,13 @@
 	    </div>
 	  <% end %>
 	  
-	  <%= check_box_tag(subscribe, value = "1", checked = false, options = {}) %>
-  
+	  Subscribe to save 10%?<br />
+	  <%= check_box_tag(:subscribe, value = "1", checked = false, options = {}) %>
 	  <%= f.hidden_field :cart_id, value: @cart.id %>
 	  <%= f.hidden_field :payment_method_id, value: @payment_method.id %>
 	  	  
+	  <br />
+	  <br />
 	  <br />
 	  <div class="actions">
 	    <%= f.submit "Place Order", class: "btn btn-primary" %>
