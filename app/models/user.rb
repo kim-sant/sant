@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_one :customer 
+  has_one :customer, :dependent => :destroy
   after_create :registration_confirmation
   after_create :create_customer
   

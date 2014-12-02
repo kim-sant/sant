@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   
-  has_many :order_selections
+  has_many :order_selections, :dependent => :destroy
   belongs_to :customer
   
   after_create :assign_order_number
@@ -27,6 +27,13 @@ class Order < ActiveRecord::Base
     end
     self.subtotal = total.to_f
     self.save
+  end
+  
+  def copy_cart(cart)
+    cart.cart_selections.each do |selection|
+      selection.order_copy(self)
+      selection.destroy
+    end
   end
   
   def items

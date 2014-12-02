@@ -1,11 +1,11 @@
 class Customer < ActiveRecord::Base
   
   belongs_to :user
-  has_many :addresses
-  has_many :payment_methods
-  has_one :cart
-  has_many :orders
-  has_many :subscriptions
+  has_many :addresses, :dependent => :destroy
+  has_many :payment_methods, :dependent => :destroy
+  has_one :cart, :dependent => :destroy
+  has_many :orders, :dependent => :destroy
+  has_many :subscriptions, :dependent => :destroy
   
   after_create :create_cart
   

@@ -25,6 +25,8 @@ ActiveAdmin.register User do
         b.column("Product") { |s| Product.find(s.product_id).name }
         b.column("Type") { |s| "Monthly" }
         b.column("Deliveries") { |s| "5" }
+        b.column("Price") { |s| number_to_currency(Product.find(s.product_id).price, precision: 2) }
+        b.column("Status") { |s| s.active ? "active" : "cancelled" }
       end
     end
     panel "Order History" do

@@ -3,7 +3,7 @@ class PaymentMethod < ActiveRecord::Base
   attr_accessor :stripe_card_token
   
   belongs_to :customer
-  has_many :payment_selections
+  has_many :payment_selections, :dependent => :destroy
   
   def save_with_payment(user)
     if valid?

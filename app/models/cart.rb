@@ -1,6 +1,6 @@
 class Cart < ActiveRecord::Base
   
-  has_many :cart_selections
+  has_many :cart_selections, :dependent => :destroy
   belongs_to :customer
   
   def subtotal

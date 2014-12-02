@@ -1,7 +1,7 @@
 class Address < ActiveRecord::Base
   
   belongs_to :customer
-  has_many :address_selections
+  has_many :address_selections, :dependent => :destroy
   
   validates :first_name, presence: true
   validates :last_name, presence: true
