@@ -1,6 +1,6 @@
-<div style="margin: 120px auto 0 auto; text-align: center; width: 960px;">
+<div style="margin: 120px auto 0 auto; text-align: center; width: 80%;">
     <% @products.each do |product| %>
-	    <div style="display: inline-block; width: 300px;">
+	    <div style="display: inline-block; margin-bottom: 50px; width: 300px;">
 			<%= image_tag(product.image_url(:thumb), style: "display: inline-block;") %>
 			<span style="display: inline-block; width: 300px;">
 				<span style="color: #555555; font-size: 14px; display: inline-block; line-height: 36px; margin: 10px 0 5px 0; width: 300px;"><%= product.name %></span>
