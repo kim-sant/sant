@@ -10,8 +10,11 @@
 
 
 .form-view {
-	margin: 0 auto;
+	margin: 120px auto 0 auto;
 	width: 200px;
+	input {
+		width: 200px;
+	}
 }
 .btn-primary {
 	background-color: darkgray;
