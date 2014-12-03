@@ -22,8 +22,12 @@ class OrdersController < InheritedResources::Base
   end
   
   def index
-    @customer = current_user.customer
-    @orders = @customer.orders
+    if signed_in?
+      @customer = current_user.customer
+      @orders = @customer.orders
+    else
+      redirect_to root_url, alert: "Create a Sant account to order."
+    end
   end
   
 end
