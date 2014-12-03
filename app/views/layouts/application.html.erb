@@ -6,10 +6,10 @@
 		<%= csrf_meta_tags %>
 		<%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
 	</head>
-	<body>
+	<body style="min-height: 800px;">
 		<%= render "shared/header" %>
 		
-		<div class="container">	
+		<div class="container" style="min-height: 600px;">	
 			
 			<% if notice.present? %>
 				<p class="notice"><%= notice %></p>
@@ -21,6 +21,8 @@
 			<%= yield %>
 			
 		</div>
+		
+		<%= render "shared/footer" %>
 	</body>
 </html>
 
