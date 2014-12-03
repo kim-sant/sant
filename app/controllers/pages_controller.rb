@@ -1,4 +1,8 @@
-class OrdersController < InheritedResources::Base
+class PagesController < InheritedResources::Base
+  
+  def homepage
+    
+  end
   
   def about
     

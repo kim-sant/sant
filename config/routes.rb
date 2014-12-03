@@ -37,6 +37,6 @@ Rails.application.routes.draw do
   
   ActiveAdmin.routes(self)
   
-  root to: "homepage#index"
+  root to: "pages#homepage"
 
 end
