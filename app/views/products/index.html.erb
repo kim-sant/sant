@@ -1,12 +1,10 @@
-<div style="margin: 0 auto; width: 500px;">
-	<table>
-	  <tbody>
-	    <% @products.each do |product| %>
-	      <tr>
-	        <td style="width: 300px;">
-				<span style="font-size: 28px; line-height: 36px;"><%= product.name %></span>
-				<br />
-	        	<span style="font-size: 16px;"><%= number_to_currency(product.price, precision: 2) %></span>
+<div style="margin: 120px auto 0 auto; text-align: center; width: 960px;">
+    <% @products.each do |product| %>
+	    <div style="display: inline-block; width: 300px;">
+			<%= image_tag(product.image_url(:thumb), style: "display: inline-block;") %>
+			<span style="display: inline-block; width: 300px;">
+				<span style="color: #555555; font-size: 14px; display: inline-block; line-height: 36px; margin: 10px 0 5px 0; width: 300px;"><%= product.name %></span>
+		    	<span style="color: #555555; font-size: 14px; display: inline-block; width: 300px;"><%= number_to_currency(product.price, precision: 2) %></span>
 				<br />
 				<br />
 				<% if @cart.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
@@ -20,10 +18,7 @@
 				<% else %>
 					<%= button_to 'Add to cart', {:action => 'add_product_to_cart', product_id: product.id}, {class: 'btn btn-primary'} %>
 				<% end %>
-			</td>
-			<td style="text-align: right; width: 200px;"><%= image_tag(product.image_url(:thumb), style: "display: inline-block;") %></td>
-	      </tr>
-	    <% end %>
-	  </tbody>
-	</table>
+			</span>
+		</div>
+    <% end %>
 </div>
