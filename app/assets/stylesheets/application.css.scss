@@ -1,3 +1,14 @@
+
+@import 'bootstrap_and_customization';
+@import 'carts';
+@import 'homepage';
+@import 'orders';
+@import 'payment_methods';
+@import 'products';
+@import 'customers';
+@import 'responsive';
+
+
 .form-view {
 	margin: 0 auto;
 	width: 200px;
@@ -13,12 +24,26 @@
 	text-align: center;
 }
 
+.sant-header {
+	height: 63px;
+	padding-top: 6px;
+	width: 960px;
+}
 
-@import 'bootstrap_and_customization';
-@import 'carts';
-@import 'homepage';
-@import 'orders';
-@import 'payment_methods';
-@import 'products';
-@import 'customers';
-@import 'responsive';
+.sant-header-mobile {
+	height: 63px;	
+}
+
+.sant-toggle {
+	margin: 14px 20px 0 0 !important;
+}
+
+a.dropdown-toggle {
+	background-color: white !important;
+}
+.dropdown-menu {
+	border-color: rgb(231, 231, 231);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.175);
+	color: #555555 !important;
+	top: 57 !important;
+}

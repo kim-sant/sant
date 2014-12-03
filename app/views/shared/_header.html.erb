@@ -1,65 +1,112 @@
 <% current_uri = request.env['PATH_INFO'] %>
 <% checkout_uris = ['/checkout/address', '/checkout/billing', '/checkout/review', '/checkout/billing'] %>
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-	  
-	<% if !checkout_uris.include? current_uri %>
-	  
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		    <span class="sr-only">Toggle navigation</span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		  </button>
-		  <%= link_to "Sample App", root_url, class: "navbar-brand" %>
-		</div>
+<nav class="navbar navbar-default" role="navigation" style="background-color: white;">
+  
+  <% if !checkout_uris.include? current_uri %>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
+	  <div class="container-fluid sant-header desktop">
+		
+			<ul class="nav navbar-nav navbar-left">
+				<li><%= link_to "Shop Our Products", products_path %></li>
+				<li><%= link_to "Free Trial", orders_path %></li>
+			</ul>
+		
+			<div>
+				<%= link_to image_tag("sant-logo.png", style: "display: inline-block; position: absolute; margin: 10px 0 0 182px;"), root_url %>
+			</div>
 
-		  </ul>
-		  <ul class="nav navbar-nav navbar-right">
-			<% if current_uri != "/products" %>
-				<li><%= link_to "Products", products_path %></li>
-			<% end %>
-			<% if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present? %>
-				<li>
-					<%= link_to "Cart ( #{Cart.find(session[:cart_id]).items} )", customer_cart_url %>
-				</li>
-			<% elsif signed_in? && current_user.customer.cart.cart_selections.present? %>
-				<li>
-					<%= link_to "Cart ( #{current_user.customer.cart.items} )", customer_cart_url %>
-				</li>
-			<% end %>
-			<% if signed_in? %>
-				<% customer = current_user.customer %>
-				<li><%= link_to "Account", "", class: "dropdown-toggle", data: {toggle: "dropdown"} %>
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to "Recipes", products_path %></li>
+				<li><%= link_to "About", orders_path %></li>
+				<li><%= link_to "My Sant", "", class: "dropdown-toggle", data: {toggle: "dropdown"} %>
 					<ul class="dropdown-menu">
-						<% if customer.address.present? %>
-							<li><%= link_to "Profile", "/profile" %></li>
+						<% if signed_in? %>
+							<% if customer.address.present? %>
+								<li><%= link_to "Profile", "/profile" %></li>
+							<% end %>
+							<% if customer.orders.present? %>
+							    <li><%= link_to "Orders", orders_path %></li>
+							<% end %>
+							<% if current_user.has_role? :admin %>
+							    <li><%= link_to "Admin", admin_root_path %></li>
+							<% end %>
+							<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+						<% else %>
+							<li><%= link_to "Sign In", new_user_session_path %></li>
+							<li><%= link_to "Create Account", new_user_registration_path %></li>
+							<li><%= link_to "Help", new_user_registration_path %></li>
 						<% end %>
-						<% if customer.orders.present? %>
-						    <li><%= link_to "Orders", orders_path %></li>
-						<% end %>
-						<% if current_user.has_role? :admin %>
-						    <li><%= link_to "Admin", admin_root_path %></li>
-						<% end %>
-						<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 					</ul>
 				</li>
-			<% else %>
-			    <li><%= link_to "Register", new_user_registration_path %></li>
-			<% end %>
-		  </ul>
-		</div><!-- /.navbar-collapse -->
+			</ul>
+
+	  </div>
+	  
+	  <div class="container-fluid sant-header-mobile tablet-mobile">
+	  
+		<% if !checkout_uris.include? current_uri %>
+	  
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header" style="height: 63px;">
+			  <button type="button" class="navbar-toggle collapsed sant-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			    <span class="sr-only">Toggle navigation</span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			  </button>
+			</div>
 		
-	<% else %>
+			<div>
+				<%= link_to image_tag("sant-logo.png", style: "display: inline-block; position: absolute; margin: 10px 0 0 0; top: 0; z-index: 1;"), root_url %>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="text-align: center;">
+			  <ul class="nav navbar-nav">
+
+			  </ul>
+			  <ul class="nav navbar-nav navbar-right">
+				<% if current_uri != "/products" %>
+					<li><%= link_to "Products", products_path %></li>
+				<% end %>
+				<% if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present? %>
+					<li>
+						<%= link_to "Cart ( #{Cart.find(session[:cart_id]).items} )", customer_cart_url %>
+					</li>
+				<% elsif signed_in? && current_user.customer.cart.cart_selections.present? %>
+					<li>
+						<%= link_to "Cart ( #{current_user.customer.cart.items} )", customer_cart_url %>
+					</li>
+				<% end %>
+				<% if signed_in? %>
+					<% customer = current_user.customer %>
+					<li><%= link_to "Account", "", class: "dropdown-toggle", data: {toggle: "dropdown"} %>
+						<ul class="dropdown-menu">
+							<% if customer.address.present? %>
+								<li><%= link_to "Profile", "/profile" %></li>
+							<% end %>
+							<% if customer.orders.present? %>
+							    <li><%= link_to "Orders", orders_path %></li>
+							<% end %>
+							<% if current_user.has_role? :admin %>
+							    <li><%= link_to "Admin", admin_root_path %></li>
+							<% end %>
+							<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+						</ul>
+					</li>
+				<% else %>
+				    <li><%= link_to "Register", new_user_registration_path %></li>
+				<% end %>
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		
+		<% else %>
 	
-	<% end %>
+		<% end %>
 	
-  </div><!-- /.container-fluid -->
+	  </div><!-- /.container-fluid -->
+
+  <% end %>
+	
 </nav>

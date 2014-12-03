@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   after_create :create_customer
   
   def registration_confirmation
-    UserMailer.registration_confirmation(self).deliver
+    UserMailer.registration(self).deliver
   end
   
   def create_customer
