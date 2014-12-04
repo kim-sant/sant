@@ -16,7 +16,7 @@
 	  <% end %>
 	  <div><%= f.submit "Register", class: "btn btn-primary" %></div>
 	<% end %>
-	<div>
+	<div class="register-signin">
 		<% if @callback.present? %>
 			<%= link_to "Sign-in", controller: 'sessions', action: 'new', callback: @callback %>
 		<% else %>
