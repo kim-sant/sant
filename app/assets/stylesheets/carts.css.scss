@@ -32,3 +32,21 @@
 		text-decoration: none;
 	}
 }
+.checkout-tab-home {
+	font-size: 14px !important;
+	top: 64px;
+	right: 21%;
+	position: absolute;
+	padding: 8px 20px 10px 20px;
+	background-color: white;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-top: none;
+	color: white;
+	z-index: 1;
+	a:link, a:visited, a:hover {
+		font-size: 14px !important;
+		color: #777777;
+		text-decoration: none;
+	}
+}
