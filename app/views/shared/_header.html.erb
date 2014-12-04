@@ -41,7 +41,13 @@
 					</ul>
 				</li>
 			</ul>
-
+			<span class="checkout-tab" >
+				<% if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present? %>
+					<%= link_to "Cart ( #{Cart.find(session[:cart_id]).items} )", customer_cart_url %>
+				<% elsif signed_in? && current_user.customer.cart.cart_selections.present? %>
+					<%= link_to "Cart ( #{current_user.customer.cart.items} )", customer_cart_url %>
+				<% end %>
+			</span>
 	  </div>
 	  
 	  <div class="container-fluid sant-header-mobile tablet-mobile">

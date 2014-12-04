@@ -1,5 +1,5 @@
 .cart-view {
-	margin: 0 auto;
+	margin: 120px auto 0 auto;
 	width: 300px;
 }
 
@@ -12,4 +12,23 @@
 .btn-subtract {
 	float: left; 
 	padding: 2px 9px; 
+}
+
+.checkout-tab {
+	font-size: 14px !important;
+	top: 64px;
+	right: 21%;
+	position: absolute;
+	padding: 8px 20px 10px 20px;
+	background-color: rgb(169, 169, 169);
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-top: none;
+	color: white;
+	z-index: 1;
+	a:link, a:visited, a:hover {
+		font-size: 14px !important;
+		color: white;
+		text-decoration: none;
+	}
 }
