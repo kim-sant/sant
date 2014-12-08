@@ -31,6 +31,22 @@
 	text-align: center;
 }
 
+
+ /* ----------------------- HEADER -------------------------- */
+
+.header-logo {
+	display: inline-block; 
+	position: absolute; 
+	margin: 8.5px 0 0 182px;
+}
+.header-logo-mobile {
+	display: inline-block; 
+	position: absolute; 
+	margin: 15px 0 0 0; 
+	top: 0; 
+	z-index: 1;
+}
+
 .sant-header {
 	height: 63px;
 	padding-top: 6px;

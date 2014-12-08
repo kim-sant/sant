@@ -2,15 +2,30 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.6'
 
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor'
+end
+
+group :test do 
+  gem 'faker' 
+  gem 'capybara' 
+  gem 'guard-rspec' 
+  gem 'launchy' 
+end
+
 group :development do
   gem 'sqlite3'
   gem 'spring'
 end
 
-group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor'
-end
+group :development, :test do 
+  gem 'rspec-rails' 
+  gem 'factory_girl_rails' 
+  gem 'mini_portile', '~> 0.6.0'
+end 
+
+
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

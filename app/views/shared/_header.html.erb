@@ -13,7 +13,7 @@
 			</ul>
 		
 			<div>
-				<%= link_to image_tag("sant-logo.png", style: "display: inline-block; position: absolute; margin: 7px 0 0 182px;"), root_url %>
+				<%= link_to image_tag("sant-logo.png", class: 'header-logo'), root_url %>
 			</div>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -69,7 +69,7 @@
 			</div>
 		
 			<div>
-				<%= link_to image_tag("sant-logo.png", style: "display: inline-block; position: absolute; margin: 10px 0 0 0; top: 0; z-index: 1;"), root_url %>
+				<%= link_to image_tag("sant-logo.png", class: 'header-logo-mobile'), root_url %>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -117,6 +117,16 @@
 		<% end %>
 	
 	  </div><!-- /.container-fluid -->
+
+  <% else %>
+
+	  <div class="container-fluid sant-header desktop">
+		
+			<div>
+				<%= link_to image_tag("sant-logo.png", style: "display: inline-block; position: absolute; margin: 7px 0 0 182px;"), root_url %>
+			</div>
+			
+      </div>
 
   <% end %>
 	
