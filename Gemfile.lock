@@ -373,6 +373,7 @@ DEPENDENCIES
   launchy
   mail (= 2.6.1)
   mini_portile (~> 0.6.0)
+  nokogiri
   pg (= 0.15.1)
   rails (= 4.1.6)
   rails_12factor

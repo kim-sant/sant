@@ -25,14 +25,14 @@ group :development, :test do
   gem 'mini_portile', '~> 0.6.0'
 end 
 
-
-
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+
+gem 'nokogiri'
 
 gem 'jquery-rails'
 gem 'turbolinks'

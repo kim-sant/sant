@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users,
-             :controllers => { registrations: 'registrations', sessions: 'sessions' }
+             controllers: { registrations: 'registrations', sessions: 'sessions' }
   
   get 'cart', to: 'carts#show', as: :customer_cart
   get 'profile', to: 'customers#show', as: :profile
