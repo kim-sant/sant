@@ -41,7 +41,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancancan', '~> 1.9'
 gem "rolify", git: "git://github.com/EppO/rolify.git"
-gem "mail", "2.6.1"
+gem "mail", "2.6.3"
 gem "rmagick", require: 'RMagick'
 gem "carrierwave"
 gem "fog"
