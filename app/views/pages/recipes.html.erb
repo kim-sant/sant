@@ -41,6 +41,9 @@
 	<%= image_tag("santgria.png", style: "width: 100%;") %>
 </div>
 
+<div class="up-arrow" style="display: none; position: fixed; bottom: 20px; right: 40px;">
+	<a href="#back-to-top"><%= image_tag("up-arrow.png", style: "opacity: 0.6; width: 50px;") %></a>
+</div>
 
 <script>
 	$(document).ready(function() {
@@ -54,4 +57,13 @@
 
 	    });
 	});
+	
+	$("a[href='#back-to-top']").click(function() {
+	  $("html, body").animate({ scrollTop: 0 }, "slow");
+	  return false;
+	});
+	
+    $(window).scroll(function () {
+      $(".up-arrow").css("display", "block");
+    });
 </script>
