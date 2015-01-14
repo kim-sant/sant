@@ -56,6 +56,11 @@
 	        }, 600);
 
 	    });
+		var $win = $(window);
+        $win.scroll(function () {
+            if ($win.scrollTop() < 50)
+                $(".up-arrow").css("display", "none");
+        });
 	});
 	
 	$("a[href='#back-to-top']").click(function() {
