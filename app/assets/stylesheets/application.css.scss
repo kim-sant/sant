@@ -170,15 +170,25 @@ a.dropdown-toggle {
 	width: 100%; 
 	padding: 10px;
 }
+.faq-question:hover {
+	background-color: #DF4171;
+	color: white;
+}
 .faq-answer {
 	background-color: white; 
 	border: 1px solid lightgray; 
+	border-bottom: none;
 	color: #404040; 
 	display: none; 
 	font-size: 12px;
 	height: 100px; 
 	width: 100%; 
 	padding: 15px 25px;
+}
+.question-link {
+	a:hover {
+		background-color: blue;
+	}
 }
 
 
