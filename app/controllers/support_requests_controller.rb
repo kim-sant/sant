@@ -1,9 +1,13 @@
 class SupportRequestsController < InheritedResources::Base
 
   def create
-    support_request = SupportRequest.create(params.require(:support_request).permit(:name, :email, :message))
-    UserMailer.support_request(support_request)
-    redirect_to root_url, notice: "Your support request has been received.  We will follow-up shortly."
+    support_request = SupportRequest.new(params.require(:support_request).permit(:name, :email, :message))
+    if support_request.save
+      UserMailer.support_request(support_request).deliver
+      redirect_to root_url, notice: "Your support request has been received.  We will follow-up shortly."
+    else
+      render action: "new"
+    end
   end
 
   private
