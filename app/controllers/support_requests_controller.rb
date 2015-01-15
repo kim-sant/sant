@@ -4,6 +4,7 @@ class SupportRequestsController < InheritedResources::Base
     @support_request = SupportRequest.new(params[:support_request_params])
 
     if @support_request.save
+      UserMailer.support_request(@support_request).deliver
       redirect_to root_url, notice: "Your support request has been received.  We will follow-up shortly."
     else
       render action: "new"
