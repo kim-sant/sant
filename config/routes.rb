@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :support_requests
+
   resources :carts
   resources :orders
   resources :products

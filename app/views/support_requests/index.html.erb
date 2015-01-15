@@ -1,0 +1,29 @@
+<h1>Listing support_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @support_requests.each do |support_request| %>
+      <tr>
+        <td><%= support_request.name %></td>
+        <td><%= support_request.email %></td>
+        <td><%= support_request.message %></td>
+        <td><%= link_to 'Show', support_request %></td>
+        <td><%= link_to 'Edit', edit_support_request_path(support_request) %></td>
+        <td><%= link_to 'Destroy', support_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Support request', new_support_request_path %>
