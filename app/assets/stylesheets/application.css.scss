@@ -48,6 +48,9 @@
 }
 
 .sant-header {
+	color: #404040;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: bold;
 	height: 63px;
 	padding-top: 6px;
 	width: 960px;
@@ -97,9 +100,10 @@ a.dropdown-toggle {
 }
 
 .footer-styling {
+  font-family: 'Source Sans Pro', sans-serif;
   clear: both;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: bold;
   margin: 60px auto 15px auto;
   padding: 10px 0 20px 0;
   text-align: center;

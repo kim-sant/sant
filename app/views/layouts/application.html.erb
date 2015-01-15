@@ -10,6 +10,7 @@
 		<%= javascript_include_tag 'https://js.stripe.com/v2/', 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 		<%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<%= render "shared/header" %>
