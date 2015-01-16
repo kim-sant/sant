@@ -156,7 +156,7 @@ a.dropdown-toggle {
 
 .recipe-thumb {
 	display: inline-block; 
-	width: 180px;
+	width: 155px;
 }
 img.recipe-thumb {
 	padding: 0 10px;
@@ -164,6 +164,18 @@ img.recipe-thumb {
 .recipe-card {
 	margin: 15px auto; 
 	width: 90%;
+}
+.recipes-title {
+	font-family: 'Slabo 27px', serif;
+	font-size: 24px;
+	margin: 60px auto 0px auto;
+	text-align: center;
+	width: 300px;
+}
+.recipes-menu {
+	margin: 40px auto 220px auto; 
+	text-align: center; 
+	width: 80%;
 }
 
 
@@ -203,6 +215,7 @@ img.recipe-thumb {
  /* ----------------------- ABOUT -------------------------- */
 
 .about-title {
+	font-family: 'Slabo 27px', serif;
 	font-size: 24px; 
 	font-weight: bold; 
 	margin: 40px 0 25px 0;
