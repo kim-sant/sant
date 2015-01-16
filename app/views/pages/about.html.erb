@@ -8,11 +8,13 @@
 	<div class='desktop' style="float: left; margin-right: 10%; width: 36%;">
 		Sant is short for Santulan, which means balance.  We don’t just value balance because we like standing on our heads during yoga.  Balance is at the impetus for health, the environment, fortitude, peace, love, gratitude, and compassion.  We want more of all that good stuff in the world, so we create experiences that cultivate balance in minds, bodies, the environment and communities.
 	</div>
-	<div class='tablet-mobile' style="float: left; margin: 0 10px 20px 0; width: 80%;">
+	<div class='tablet-mobile' style="float: left; margin: 0 10px 20px 0;">
 		Sant is short for Santulan, which means balance.  We don’t just value balance because we like standing on our heads during yoga.  Balance is at the impetus for health, the environment, fortitude, peace, love, gratitude, and compassion.  We want more of all that good stuff in the world, so we create experiences that cultivate balance in minds, bodies, the environment and communities.
 	</div>
 	<%= image_tag('sant-balance.jpg', height: 200, class: 'desktop') %>
-	<%= image_tag('sant-balance.jpg', height: 320, class: 'tablet-mobile') %>
+	<div class='about-pic-wrap'>
+		<%= image_tag('sant-balance.jpg', height: 320, class: 'tablet-mobile about-pic', style: 'margin: 0 auto;') %>
+	</div>
 	<br /><br />
 	<div class='about-subtitle'>
 		We work directly with farmers and women’s self-help groups in India
@@ -21,7 +23,7 @@
 		The rural communities we work with are full of smiles and spirit, but are not full of economic opportunities.  Many families struggle to meet basic needs, since they can’t earn enough income farming. 
 	<br /><br />  
 	</div>
-	<div style="text-align: center; width: 100%;">
+	<div class='about-pic-wrap'>
 		<%= image_tag('sant-farmer.jpg', class: 'about-pic') %>
 		<%= image_tag('sant-family.jpg', class: 'about-pic') %>
 	</div>
@@ -32,7 +34,7 @@
 	<div class='about-subtitle'>
 		We promote re-useable bottles and conscious consumption
 	</div>
-	<div style="text-align: center; width: 100%;">
+	<div class='about-pic-wrap'>
 		<%= image_tag('sant-fun-2.jpg', class: 'about-pic') %>
 		<%= image_tag('sant-drinking.jpg', class: 'about-pic') %>
 	</div>
@@ -52,7 +54,8 @@
 	</div>
 	<br /><br />
 	<div style="text-align: center; width: 100%;">
-		<%= image_tag('kim-lapaglia.jpg', height: 420) %>
+		<%= image_tag('kim-lapaglia.jpg', height: 420, class: 'desktop') %>
+		<%= image_tag('kim-lapaglia.jpg', class: 'tablet-mobile', style: 'margin: 0 auto; width: 90%;') %>
 	</div>
 	<br /><br />
 	<div style='font-style: italic; margin: 0 auto; width: 80%;'>
