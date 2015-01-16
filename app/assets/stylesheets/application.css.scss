@@ -46,18 +46,21 @@
 .header-logo-mobile {
 	display: inline-block; 
 	position: absolute; 
-	margin: 15px 0 0 0; 
+	margin: 15px 0 0 8px; 
 	top: 0; 
 	z-index: 1;
 }
 
 .sant-header {
-	color: #404040;
+	color: #404040 !important;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: bold;
 	height: 63px;
 	padding-top: 6px;
 	width: 960px;
+	a:link, a:visited, a:hover {
+		color: #404040 !important;
+	}
 }
 
 .sant-header-mobile {
@@ -121,19 +124,19 @@ a.dropdown-toggle {
   }
 }
 .footer-header {
-	color: #555555;
+	color: #404040;
 	font-size: 14px;
 	line-height: 26px;
     a:link, a:visited, a:hover {
-      color: #555555;
+      color: #404040;
     }
 }
 .footer-link {
-	color: lightgray;
+	color: #555555;
 	font-size: 13px;
 	line-height: 22px;
     a:link, a:visited, a:hover {
-      color: darkgray;
+      color: #555555;
     }
 }
 .footer-group {
