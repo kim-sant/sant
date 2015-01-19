@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   get 'checkout/review', to: 'carts#review_step', as: :review_step
   
   get 'about', to: 'pages#about', as: :about
-  get 'help', to: 'pages#help', as: :help
   get 'recipes', to: 'pages#recipes', as: :recipes
   get 'earn_credit', to: 'pages#earn_credit', as: :earn_credit
   get 'faq', to: 'pages#faq', as: :faq

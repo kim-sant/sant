@@ -1,6 +1,6 @@
 <%= render 'shared/progress_bar' %>
 
-<div class="form-view">
+<div class="form-view" style="margin-top: 20px;">
 	<%= simple_form_for(@address, url: address_update_path) do |f| %>
 	  <% if @address.errors.any? %>
 	    <div id="error_explanation">
@@ -23,11 +23,11 @@
 	    <%= f.text_field :last_name %>
 	  </div>
 	  <div class="field">
-	    <%= f.label :line_1, "Address 1" %><br>
+	    <%= f.label :line_1, "Address" %><br>
 	    <%= f.text_field :line_1 %>
 	  </div>
 	  <div class="field">
-	    <%= f.label :line_2, "Address 2" %><br>
+	    <%= f.label :line_2, "Apt" %><br>
 	    <%= f.text_field :line_2 %>
 	  </div>
 	  <div class="field">
