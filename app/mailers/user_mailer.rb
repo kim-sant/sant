@@ -8,6 +8,6 @@ class UserMailer < ActionMailer::Base
   
   def support_request(support_request)
     @request = support_request
-    mail(to: "klapaglia@idrinksant.com <klapaglia@idrinksant.com>", subject: "New support request")
+    mail(to: "balance@idrinksant.com <balance@idrinksant.com>", subject: "New support request")
   end
 end
