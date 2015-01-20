@@ -15,6 +15,7 @@ class OrdersController < InheritedResources::Base
         s = Subscription.new
         s.product_id = selection.product_id
         s.customer_id = customer.id
+        s.active = true
         s.save
       end
     end
