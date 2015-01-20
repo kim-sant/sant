@@ -84,7 +84,7 @@ Rails.application.configure do
   
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
-    :port      => 587,
+    :port      => '587',
     :user_name => "balance@idrinksant.com",
     :password  => "mcn5rXpCZHzIRs6Wukb-wQ"
   }
