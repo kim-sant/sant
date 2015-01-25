@@ -11,11 +11,14 @@
 				</span>
 				<% if @cart.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
 					<% selection = CartSelection.where(product_id: product.id).where(cart_id: @cart.id).first %>
-					<div style="display: inline-block; float: right; margin-bottom: -46px; margin-top: 5px;">
-						<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-add', style: 'inline-block;'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-subtract', style: 'inline-block;'} %>
-					</div>
-					<div style="color: #606060; display: inline-block; float: right; font-size: 16px; line-height: 35px; margin-right: 75px;">
-						(<%= selection.quantity %>)
+					<div style='float: right; width: 80px;'>
+						<div style="color: #606060; display: inline-block; float: right; font-size: 12px; line-height: 22px;">
+							<%= selection.quantity.to_words %> added
+						</div>
+						<br />
+						<div style="display: inline-block; float: right; margin-bottom: -46px;">
+							<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-add', style: 'inline-block;'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-subtract', style: 'inline-block;'} %>
+						</div>
 					</div>
 				<% else %>
 					<%= button_to 'Add to cart', {:action => 'add_product_to_cart', product_id: product.id}, {class: 'btn btn-primary'} %>
@@ -23,20 +26,23 @@
 			</div>
 	    <% end %>
 		<% if !signed_in? || !current_user.customer.subscriptions.where(active: true).present? %>
-			<% @subscription_plans.each do |plan| %>
-			    <div class='product-option'>
-					<span class='product-label'>
-						Sant Subscription<br />
-						<span style='font-size: 12px;'>
-							<%= number_to_currency(plan.price, precision: 2) %> (1 pouch every <%= plan.interval_weeks %> weeks)
+			<% if @subscription_plans.present? %>
+			<br />
+				<% @subscription_plans.each do |plan| %>
+				    <div class='product-option'>
+						<span class='product-label'>
+							Sant Subscription<br />
+							<span style='font-size: 12px;'>
+								<%= number_to_currency(plan.price, precision: 2) %> (1 pouch every <%= plan.interval_weeks %> weeks)
+							</span>
 						</span>
-					</span>
-					<% if @cart.present? && CartSelection.where(subscription_plan_id: plan.id).where(cart_id: @cart.id).present? %>
-						<%= button_to 'Added', {:action => 'remove_plan_from_cart', plan_id: plan.id}, {class: 'btn btn-primary btn-subscribe', style: 'background-color: #DF4174;'} %>
-					<% else %>
-						<%= button_to 'Subscribe', {:action => 'add_plan_to_cart', plan_id: plan.id}, {class: 'btn btn-primary btn-subscribe'} %>
-					<% end %>
-				</div>
+						<% if @cart.present? && CartSelection.where(subscription_plan_id: plan.id).where(cart_id: @cart.id).present? %>
+							<%= button_to 'Added', {:action => 'remove_plan_from_cart', plan_id: plan.id}, {class: 'btn btn-primary btn-subscribe', style: 'background-color: #DF4174;'} %>
+						<% else %>
+							<%= button_to 'Subscribe', {:action => 'add_plan_to_cart', plan_id: plan.id}, {class: 'btn btn-primary btn-subscribe'} %>
+						<% end %>
+					</div>
+				<% end %>
 			<% end %>
 		<% end %>
 		<%= button_to 'Buy Now', {controller: 'carts', action: 'checkout', cart_id: @cart.id}, {class: 'btn btn-primary', style: "background-color: #DF4174; margin-top: 20px; width: 300px"} %>
