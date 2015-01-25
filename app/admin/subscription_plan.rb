@@ -15,9 +15,8 @@ ActiveAdmin.register SubscriptionPlan do
   form do |f|
       f.inputs "Subscription Plan" do
           f.input :product
-          f.input :password
-          f.input :password_confirmation
-          f.input :product, collection: Product.order('name ASC')
+          f.input :price
+          f.input :interval_weeks
       end
       f.actions
   end
