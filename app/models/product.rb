@@ -3,7 +3,6 @@ class Product < ActiveRecord::Base
   friendly_id :create_slug, use: :slugged
   mount_uploader :image, ImageUploader
   
-  has_many :subscriptions, dependent: :destroy
   has_many :cart_selections, dependent: :destroy
   has_many :order_selections, dependent: :destroy
   has_many :subscription_plans, dependent: :destroy
