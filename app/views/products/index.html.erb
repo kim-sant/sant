@@ -6,7 +6,7 @@
 				<span class='product-label'>
 					<%= product.name %><br />
 					<span style='font-size: 12px;'>
-						<%= number_to_currency(product.price, precision: 2) %> (one pouch)
+						<%= number_to_currency(product.price, precision: 2) %>
 					</span>
 				</span>
 				<% if @cart.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
@@ -26,7 +26,7 @@
 			<% @subscription_plans.each do |plan| %>
 			    <div class='product-option'>
 					<span class='product-label'>
-						<%= plan.product.name %><br />
+						Sant Subscription<br />
 						<span style='font-size: 12px;'>
 							<%= number_to_currency(plan.price, precision: 2) %> (1 pouch every <%= plan.interval_weeks %> weeks)
 						</span>
