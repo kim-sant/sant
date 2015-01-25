@@ -17,10 +17,8 @@ ActiveAdmin.register SubscriptionPlan do
           f.input :product
           f.input :password
           f.input :password_confirmation
-          f.input :role, as: :radio, collection: {Editor: "editor", Administrator: "administrator"}
+          f.input :product, collection: Product.order('name ASC')
       end
       f.actions
   end
-
-  form partial: 'form'
 end
