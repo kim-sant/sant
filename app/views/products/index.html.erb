@@ -6,7 +6,7 @@
 				<span class='product-label'>
 					<%= product.name %><br />
 					<span style='font-size: 12px;'>
-						<%= number_to_currency(product.price, precision: 2) %>
+						<%= number_to_currency(product.price, precision: 2) %> (one pouch)
 					</span>
 				</span>
 				<% if @cart.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
@@ -28,7 +28,7 @@
 					<span class='product-label'>
 						<%= plan.product.name %><br />
 						<span style='font-size: 12px;'>
-							<%= number_to_currency(plan.price, precision: 2) %> every <%= plan.interval_weeks %> weeks
+							<%= number_to_currency(plan.price, precision: 2) %> (1 pouch every <%= plan.interval_weeks %> weeks)
 						</span>
 					</span>
 					<% if @cart.present? && CartSelection.where(subscription_plan_id: plan.id).where(cart_id: @cart.id).present? %>
