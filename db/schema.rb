@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115183742) do
+ActiveRecord::Schema.define(version: 20150124220202) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150115183742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity"
+    t.integer  "subscription_plan_id"
   end
 
   create_table "carts", force: true do |t|
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150115183742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity"
+    t.integer  "subscription_plan_id"
   end
 
   create_table "orders", force: true do |t|
@@ -130,8 +132,16 @@ ActiveRecord::Schema.define(version: 20150115183742) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
+  create_table "subscription_plans", force: true do |t|
+    t.string   "product_id"
+    t.integer  "interval_weeks"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "subscriptions", force: true do |t|
-    t.integer  "product_id"
+    t.integer  "subscription_plan_id"
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"

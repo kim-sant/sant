@@ -2,8 +2,23 @@
 
 <div class="form-view">
 	
-	Total: <%= number_to_currency(@cart.subtotal, precision: 2) %>
+	<% @cart.cart_selections.each do |selection| %>
+		<% if selection.product_id.present? %>
+			<span style='float: left;'><%= selection.product.name %> (<%= selection.quantity %>)</span>
+			<span style='float: right'><%= number_to_currency(selection.product.price*selection.quantity, precision: 2) %></span>
+		<% else %>
+			<span style='float: left;'><%= selection.subscription_plan.product.name %></span><br /><span style='font-size: 12px;'>(every <%= selection.subscription_plan.interval_weeks %> weeks)</span>
+			<span style='float: right'><%= number_to_currency(selection.subscription_plan.price, precision: 2) %></span>
+			<br />
+		<% end %>
+		<br />
+		<br />
+	<% end %>
 	<br />
+	<div style='width: 100%;'>
+		<span style='float: left;'>Total: </span>
+		<span style='float: right;'><%= number_to_currency(@cart.subtotal, precision: 2) %></span>
+	</div>
 	<br />
 
 	<%= simple_form_for(@order, url: create_order_path) do |f| %>
@@ -19,8 +34,6 @@
 	    </div>
 	  <% end %>
 	  
-	  Subscribe to save 10%?<br />
-	  <%= check_box_tag(:subscribe, value = "1", checked = false, options = {}) %>
 	  <%= f.hidden_field :cart_id, value: @cart.id %>
 	  <%= f.hidden_field :payment_method_id, value: @payment_method.id %>
 	  	  

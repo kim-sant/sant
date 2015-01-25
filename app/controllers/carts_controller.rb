@@ -59,8 +59,12 @@ class CartsController < InheritedResources::Base
   end
   
   def address_step
-    @address = Address.new
     @customer = current_user.customer
+    if @customer.cart.cart_selections.present?
+      @address = Address.new
+    else
+      redirect_to "/products", notice: "Please select a purchase option from the menu below."
+    end
   end
   
   def billing_step

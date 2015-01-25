@@ -1,6 +1,6 @@
 <%= render 'shared/progress_bar' %>
 
-<div class="form-view">
+<div class="form-view" style='margin-top: 80px;'>
 	<%= simple_form_for(@payment_method, url: billing_update_path) do |f| %>
 	  <% if @payment_method.errors.any? %>
 	    <div id="error_explanation">
@@ -32,7 +32,7 @@
 	    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
 	  </div>
 	  
-	  <br />
+	  <br /><br />
 	  <div class="actions">
 	    <%= f.submit "Continue", class: "btn btn-primary" %>
 	  </div>

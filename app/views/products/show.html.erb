@@ -1,9 +1,0 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong><%= @product.name %></strong> - <%= number_to_currency(@product.price, precision: 2) %>
-</p>
-
-<p>
-  <%= image_tag @product.image_url(:thumb) if @product.image? %>
-</p>

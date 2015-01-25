@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post 'add_product_to_cart', to: 'products#add_product_to_cart', as: :add_product_to_cart
   post 'increase_quantity', to: 'carts#increase_quantity', as: :increase_quanity
   post 'decrease_quantity', to: 'carts#decrease_quantity', as: :descrease_quantity
+  post 'add_plan_to_cart', to: 'products#add_plan_to_cart', as: :add_plan_to_cart
+  post 'remove_plan_from_cart', to: 'products#remove_plan_from_cart', as: :remove_plan_from_cart
   post 'checkout', to: 'carts#checkout', as: :checkout
   
   post '/address_update', to: 'addresses#address_update', as: 'address_update'

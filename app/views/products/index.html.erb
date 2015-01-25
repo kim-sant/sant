@@ -1,25 +1,44 @@
-<div style="margin: 120px auto 0 auto; text-align: center; width: 80%;">
-    <% @products.each do |product| %>
-	    <div style="display: inline-block; margin-bottom: 50px; width: 300px;">
-			<%= image_tag(product.image_url(:thumb), style: "display: inline-block;") %>
-			<span style="display: inline-block; width: 300px;">
-				<span style="color: #555555; font-size: 14px; display: inline-block; line-height: 36px; margin: 10px 0 5px 0; width: 300px;"><%= product.name %></span>
-		    	<span style="color: #555555; font-size: 14px; display: inline-block; width: 300px;"><%= number_to_currency(product.price, precision: 2) %></span>
-				<br />
-				<br />
+<div class='products-container'>
+	<%= image_tag('sant-product.jpg', style: 'border-radius: 3px; display: inline-block; margin-top: -120px; padding: 40px; width: 440px;') %>
+	<div class='products-menu'>
+	    <% @products.each do |product| %>
+		    <div class='product-option'>
+				<span class='product-label'>
+					<%= product.name %><br />
+					<span style='font-size: 12px;'>
+						<%= number_to_currency(product.price, precision: 2) %>
+					</span>
+				</span>
 				<% if @cart.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
 					<% selection = CartSelection.where(product_id: product.id).where(cart_id: @cart.id).first %>
-					<div style="clear: both; display: inline-block;">
-						<span style="float: left; margin: 3px 0 10px 0;">quantity in cart: <%= selection.quantity %></span>
+					<div style="display: inline-block; float: right; margin-bottom: -46px; margin-top: 5px;">
+						<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-add', style: 'inline-block;'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-subtract', style: 'inline-block;'} %>
 					</div>
-					<br />
-					<div style="clear: both; display: inline-block; margin-bottom: -46px; margin-top: 5px;">
-						<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-add'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id, page: 'product'}, {method: :post, class: 'btn btn-primary btn-subtract'} %>
+					<div style="color: #606060; display: inline-block; float: right; font-size: 16px; line-height: 35px; margin-right: 75px;">
+						(<%= selection.quantity %>)
 					</div>
 				<% else %>
 					<%= button_to 'Add to cart', {:action => 'add_product_to_cart', product_id: product.id}, {class: 'btn btn-primary'} %>
 				<% end %>
-			</span>
-		</div>
-    <% end %>
+			</div>
+	    <% end %>
+		<% if !signed_in? || !current_user.customer.subscriptions.where(active: true).present? %>
+			<% @subscription_plans.each do |plan| %>
+			    <div class='product-option'>
+					<span class='product-label'>
+						<%= plan.product.name %><br />
+						<span style='font-size: 12px;'>
+							<%= number_to_currency(plan.price, precision: 2) %> every <%= plan.interval_weeks %> weeks
+						</span>
+					</span>
+					<% if @cart.present? && CartSelection.where(subscription_plan_id: plan.id).where(cart_id: @cart.id).present? %>
+						<%= button_to 'Added', {:action => 'remove_plan_from_cart', plan_id: plan.id}, {class: 'btn btn-primary btn-subscribe', style: 'background-color: #DF4174;'} %>
+					<% else %>
+						<%= button_to 'Subscribe', {:action => 'add_plan_to_cart', plan_id: plan.id}, {class: 'btn btn-primary btn-subscribe'} %>
+					<% end %>
+				</div>
+			<% end %>
+		<% end %>
+		<%= button_to 'Buy Now', {controller: 'carts', action: 'checkout', cart_id: @cart.id}, {class: 'btn btn-primary', style: "background-color: #DF4174; margin-top: 20px; width: 300px"} %>
+	</div>
 </div>

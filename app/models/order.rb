@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
     count = 0
     while chars == "" || Order.where(order_number: chars).present?
       while count < 4
-        chars = chars + charset[rand(61)]
+        chars = chars + charset[rand(61)].upcase
         count = count + 1
       end
       number = Time.now.month.to_s + "-" + Time.now.yday.to_s + "-" + chars
@@ -23,7 +23,11 @@ class Order < ActiveRecord::Base
   def assign_total
     total = 0
     self.order_selections.each do |selection|
-      total = total + (selection.product.price * selection.quantity)
+      if selection.product_id.present?
+        total = total + (selection.product.price * selection.quantity)
+      else
+        total = total + (selection.subscription_plan.price)
+      end
     end
     self.subtotal = total.to_f
     self.save

@@ -16,14 +16,13 @@
 
 .checkout-tab {
 	font-size: 14px !important;
-	top: 64px;
+	top: 63px;
 	right: 21%;
 	position: absolute;
 	padding: 8px 20px 10px 20px;
-	background-color: rgb(169, 169, 169);
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
-	border-top: none;
+	border: 1px solid lightgray;
 	color: white;
 	z-index: 1;
 	a:link, a:visited, a:hover {
@@ -33,6 +32,7 @@
 	}
 }
 .checkout-tab-home {
+	border: 1px solid lightgray;
 	font-size: 14px !important;
 	top: 64px;
 	right: 21%;
@@ -49,4 +49,22 @@
 		color: #777777;
 		text-decoration: none;
 	}
+}
+
+.progress-on {
+	border: 2px solid #DF4174; 
+	display: inline-block; 
+	float: left;
+	padding: 10px;
+	text-align: center; 
+	width: 230px;
+}
+.progress-off {
+	border: 1px solid lightgray; 
+	display: inline-block; 
+	float: left;
+	margin: 1px 0 0 -1px;
+	padding: 10px;
+	text-align: center; 
+	width: 230px;
 }

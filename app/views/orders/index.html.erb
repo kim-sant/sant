@@ -1,5 +1,8 @@
 <div class="form-view" style="margin-top: 50px; width: 450px;">
-	<table>
+	<div class='recipes-title'>
+		Current and Past Orders
+	</div>
+	<table style='margin-top: 20px;'>
 	  <thead>
 	    <tr>
 	      <th style="height: 40px; width: 150px;">Order number</th>
@@ -17,7 +20,29 @@
 	        <td><%= number_to_currency(order.subtotal, precision: 2) %></td>
 	      </tr>
 	    <% end %>
-		<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+	  </tbody>
+	</table>
+	<div class='recipes-title'>
+		Current Subscriptions
+	</div>
+	<table style='margin-top: 20px;'>
+	  <thead>
+	    <tr>
+	      <th style="height: 40px; width: 150px;">Product</th>
+	      <th style="height: 40px; width: 150px;">Schedule</th>
+	      <th style="height: 40px; width: 150px;">Price</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @subscriptions.each do |subscription| %>
+	      <tr>
+	        <td><%= subscription.subscription_plan.product.name %></td>
+	        <td>every <%= subscription.subscription_plan.interval_weeks %> weeks</td>
+	        <td><%= number_to_currency(subscription.subscription_plan.price, precision: 2) %></td>
+	      </tr>
+	    <% end %>
 	  </tbody>
 	</table>
 </div>

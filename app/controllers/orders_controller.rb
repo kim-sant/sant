@@ -10,13 +10,13 @@ class OrdersController < InheritedResources::Base
     order.save
     order.copy_cart(cart)
     order.assign_total
-    if params[:subscribe].present? && params[:subscribe] == '1'
-      order.order_selections.each do |selection|
-        s = Subscription.new
-        s.product_id = selection.product_id
-        s.customer_id = customer.id
-        s.active = true
-        s.save
+    order.order_selections.each do |selection|
+      if selection.subscription_plan_id.present?
+        subscription = Subscription.new
+        subscription.subscription_plan_id = selection.subscription_plan_id
+        subscription.active = true
+        subscription.customer_id = customer.id
+        subscription.save
       end
     end
     redirect_to orders_path, notice: "Your order is being processed."
@@ -26,6 +26,7 @@ class OrdersController < InheritedResources::Base
     if signed_in?
       @customer = current_user.customer
       @orders = @customer.orders
+      @subscriptions = @customer.subscriptions
     else
       redirect_to root_url, alert: "Create a Sant account to order."
     end

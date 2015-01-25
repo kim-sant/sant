@@ -11,6 +11,7 @@ class ProductsController < InheritedResources::Base
   
   def index
     @products = Product.all
+    @subscription_plans = SubscriptionPlan.all
     if user_signed_in?
       @customer = current_user.customer
       if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
@@ -22,11 +23,29 @@ class ProductsController < InheritedResources::Base
         @cart.customer_id = @customer.id
         @cart.save
         session.delete(:cart_id)
-      else
+      elsif Cart.where(customer_id: @customer.id).present?
         @cart = Cart.where(customer_id: @customer.id).first
+      else
+        @cart = Cart.create
+        session[:cart_id] = @cart.id
+        if !@customer.subscriptions.where(active: true).present?
+          selection = CartSelection.new
+          selection.cart_id = @cart.id
+          selection.subscription_plan_id = SubscriptionPlan.first.id
+          selection.quantity = 1
+          selection.save
+        end
       end
     elsif session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
       @cart = Cart.find(session[:cart_id])
+    else
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+      selection = CartSelection.new
+      selection.cart_id = @cart.id
+      selection.subscription_plan_id = SubscriptionPlan.first.id
+      selection.quantity = 1
+      selection.save
     end
   end
   
@@ -48,6 +67,42 @@ class ProductsController < InheritedResources::Base
     selection.product_id = product.id
     selection.quantity = 1
     selection.save
+    redirect_to products_url
+  end
+  
+  def add_plan_to_cart 
+    plan = SubscriptionPlan.find(params[:plan_id])
+    if user_signed_in?
+      customer = current_user.customer
+      cart = customer.cart
+    else
+      if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
+        cart = Cart.find(session[:cart_id])
+      else
+        cart = Cart.create
+        session[:cart_id] = cart.id
+      end
+    end
+    selection = CartSelection.new
+    selection.cart_id = cart.id
+    selection.subscription_plan_id = plan.id
+    selection.quantity = 1
+    selection.save
+    redirect_to products_url
+  end
+  
+  def remove_plan_from_cart
+    plan = SubscriptionPlan.find(params[:plan_id])
+    if user_signed_in?
+      customer = current_user.customer
+      cart = customer.cart
+    else
+      if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
+        cart = Cart.find(session[:cart_id])
+      end
+    end
+    selection = CartSelection.where(cart_id: cart.id).where(subscription_plan_id: plan.id).first
+    selection.destroy
     redirect_to products_url
   end
   

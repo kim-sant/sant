@@ -1,24 +1,28 @@
 <% @current_uri = request.env['PATH_INFO'] %>
 
-<div style="height: 40px; margin: 40px auto 80px auto; width: 698px;">
+<div>
+	<%= link_to image_tag("sant-logo.png", class: 'checkout-logo'), root_url %>
+</div>
+
+<div style="font-family: 'Source Sans Pro', sans-serif; font-weight: bold; height: 40px; margin: 50px auto; width: 698px;">
 	<% if @current_uri == "/checkout/address" %>
-		<span style="background-color: darkgray; color: white; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+		<span class='progress-on'>
 	<% else %>
-		<span style="background-color: lightgray; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+		<span class='progress-off'>
 	<% end %>
 		Address
 	</span>
 	<% if @current_uri == "/checkout/billing" %>
-		<span style="background-color: darkgray; color: white; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+		<span class='progress-on'>
 	<% else %>
-		<span style="background-color: lightgray; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+		<span class='progress-off'>
 	<% end %>
 		Billing
 	</span>
 	<% if @current_uri == "/checkout/review" %>
-		<span style="background-color: darkgray; color: white; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+		<span class='progress-on'>
 	<% else %>
-		<span style="background-color: lightgray; display: inline-block; padding: 10px; text-align: center; width: 230px;">
+		<span class='progress-off'>
 	<% end %>
 		Review
 	</span>

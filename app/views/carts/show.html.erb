@@ -1,15 +1,30 @@
 <div class="cart-view">
 	<% if @cart.present? && @cart.cart_selections.present? %>
 		<% @cart.cart_selections.each do |selection| %>
-			<span style="font-weight: bold;"><%= Product.find(selection.product_id).name.titleize %></span> (<%= number_to_currency(selection.product.price, precision: 2) %>)<br />
-			<div style="clear: both;">
-				<span style="float: left; margin: 3px 0 10px 0;">quantity: <%= selection.quantity %></span>
-				<span style="float: right; margin-top: 5px;"><%= number_to_currency(selection.quantity*selection.product.price, precision: 2) %></span>
-			</div>
-			<div style="clear: both; margin-top: 5px;">
-				<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id, page: 'cart'}, {method: :post, class: 'btn btn-primary btn-add'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id, page: 'cart'}, {method: :post, class: 'btn btn-primary btn-subtract'} %>
-			</div>
-			<br /><br />
+			<% if selection.product_id.present? %>
+				<span style="font-weight: bold;"><%= selection.product.name.titleize %></span> (<%= number_to_currency(selection.product.price, precision: 2) %>)<br />
+				<div style="clear: both;">
+					<span style="float: left; margin: 3px 0 10px 0;">quantity: <%= selection.quantity %></span>
+					<span style="float: right; margin-top: 5px;"><%= number_to_currency(selection.quantity*selection.product.price, precision: 2) %></span>
+				</div>
+				<div style="clear: both; margin-top: 5px;">
+					<%= link_to '+', {controller: 'carts', action: 'increase_quantity', cart_selection_id: selection.id, page: 'cart'}, {method: :post, class: 'btn btn-primary btn-add'} %><%= link_to '-', {controller: 'carts', action: 'decrease_quantity', cart_selection_id: selection.id, page: 'cart'}, {method: :post, class: 'btn btn-primary btn-subtract'} %>
+				</div>
+				<br /><br />
+			<% else %>
+				<span style="font-weight: bold;">
+					<%= Product.find(SubscriptionPlan.find(selection.subscription_plan_id).product_id).name.titleize %>
+				</span> 
+				<br />
+				<span style='font-size: 12px;'>
+					<%= number_to_currency(selection.subscription_plan.product.price, precision: 2) %> - 
+					every <%= selection.subscription_plan.interval_weeks %> weeks
+				</span>
+				<span style="float: right; margin-top: 5px;">
+					<%= number_to_currency(selection.subscription_plan.product.price, precision: 2) %>
+				</span>
+				<br /><br />
+			<% end %>
 		<% end %>
 		<br />
 		<span style="float: left;">Subtotal: <span style="float: right;"><%= number_to_currency(@cart.subtotal, precision: 2) %></span>

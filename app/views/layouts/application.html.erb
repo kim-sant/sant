@@ -12,17 +12,24 @@
 		<%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+		
+		<% no_header = ['/checkout/address', '/checkout/billing', '/checkout/review', '/checkout/billing'] %>
+		<% no_notices = ['/checkout/address', '/checkout/billing', '/checkout/review', '/checkout/billing'] %>
 	</head>
 	<body>
-		<%= render "shared/header" %>
+		<% if !no_header.include? @current_uri %>
+			<%= render "shared/header" %>
+		<% end %>
 		
 		<div class="container" style="min-height: 500px;">	
 			
-			<% if notice.present? %>
-				<p class="notice"><%= notice %></p>
-			<% end %>
-			<% if alert.present? %>
-				<p class="alert"><%= alert %></p>
+			<% if !no_header.include? @current_uri %>
+				<% if notice.present? %>
+					<p class="notice"><%= notice %></p>
+				<% end %>
+				<% if alert.present? %>
+					<p class="alert"><%= alert %></p>
+				<% end %>
 			<% end %>
 			
 			<%= yield %>
