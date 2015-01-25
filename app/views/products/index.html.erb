@@ -27,7 +27,7 @@
 	    <% end %>
 		<% if !signed_in? || !current_user.customer.subscriptions.where(active: true).present? %>
 			<% if @subscription_plans.present? %>
-			<br />
+			<br /><br />
 				<% @subscription_plans.each do |plan| %>
 				    <div class='product-option'>
 						<span class='product-label'>
