@@ -60,7 +60,7 @@ class CartsController < InheritedResources::Base
   
   def address_step
     @customer = current_user.customer
-    if @customer.cart.cart_selections.present? || Cart.find(session[:cart_id]).present?
+    if @customer.cart.present? && @customer.cart.cart_selections.present?
       @address = Address.new
     else
       redirect_to "/products", notice: "Please select a purchase option from the menu below."
