@@ -49,12 +49,14 @@ class Order < ActiveRecord::Base
   end
   
   def selections_display
+    selections = ""
     self.order_selections.each do |selection|
       if selection.product_id.present?
-        "#{selection.product.name} (#{selection.quantity})"
+        selections = selections + selection.product.name + " (" + selection.quantity + "), "
       else
-        "#{selection.subscription_plan.product.name} (1)"
+        selections = selections + selection.subscription_plan.product.name + " (1), "
       end
     end
+    return selections
   end
 end
