@@ -15,7 +15,7 @@ ActiveAdmin.register Order do
       actions
   end
   
-  cvs do 
+  csv do 
     column :order_number
     column "Customer" do |order|
       User.find(order.customer.user_id).email
