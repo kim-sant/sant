@@ -23,8 +23,8 @@ class ProductsController < InheritedResources::Base
         @cart.customer_id = @customer.id
         @cart.save
         session.delete(:cart_id)
-      elsif Cart.where(customer_id: @customer.id).present?
-        @cart = Cart.where(customer_id: @customer.id).first
+      elsif @customer.cart.present?
+        @cart = @customer.cart
       else
         @cart = Cart.create
         session[:cart_id] = @cart.id
