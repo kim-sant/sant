@@ -23,15 +23,6 @@ ActiveAdmin.register Order do
     column "Items" do |order|
       order.selections_display
     end
-    Meal.from_latest_menu.each do |meal|
-      column "Meal Selection" do |weekly_basket|
-        if weekly_basket.meal_selections.where(meal_id: meal.id).present?
-          meal.title[0...10]
-        else
-          ""
-        end
-      end
-    end
     column "Address1" do |order|
       order.customer.address.line_1
     end
