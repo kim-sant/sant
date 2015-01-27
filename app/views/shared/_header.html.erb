@@ -35,7 +35,7 @@
 				</ul>
 			</li>
 		</ul>
-		<% if (session[:cart_id].present? && Cart.find(session[:cart_id]).present?) || (signed_in? && current_user.customer.cart.cart_selections.present?) %>
+		<% if (session[:cart_id].present? && Cart.find(session[:cart_id]).present?) || (signed_in? && current_user.customer.cart.present? && current_user.customer.cart.cart_selections.present?) %>
 			<% if current_uri == "/" || current_uri == "" %>
 				<span class="checkout-tab-home">
 			<% else %>
