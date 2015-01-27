@@ -2,7 +2,7 @@ class PagesController < InheritedResources::Base
   
   def homepage
     if session[:cart_id].present? && !Cart.find(session[:cart_id]).present?
-      session.delete(:cart_id)
+      session[:cart_id] = nil
     end
   end
   
