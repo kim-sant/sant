@@ -47,4 +47,14 @@ class Order < ActiveRecord::Base
     end
     count
   end
+  
+  def selections_display
+    self.order_selections.each do |selection|
+      if selection.product_id.present?
+        "#{selection.product.name} (#{selection.quantity})"
+      else
+        "#{selection.subscription_plan.product.name} (1)"
+      end
+    end
+  end
 end

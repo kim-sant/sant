@@ -21,11 +21,14 @@ ActiveAdmin.register Order do
       User.find(order.customer.user_id).email
     end
     column "Items" do |order|
-      order.order_selections.each do |selection|
-        if selection.product_id.present?
-          "#{selection.product.name} (#{selection.quantity})"
+      order.selections_display
+    end
+    Meal.from_latest_menu.each do |meal|
+      column "Meal Selection" do |weekly_basket|
+        if weekly_basket.meal_selections.where(meal_id: meal.id).present?
+          meal.title[0...10]
         else
-          "#{selection.subscription_plan.product.name} (1)"
+          ""
         end
       end
     end
