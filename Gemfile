@@ -51,3 +51,4 @@ gem "friendly_id", "~> 5.0.0"
 gem "simple_form",          ">= 2.1.0"
 gem 'formtastic'
 gem 'numbers_and_words'
+gem 'rollbar', '~> 1.4.2'
