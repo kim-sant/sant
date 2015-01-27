@@ -16,7 +16,8 @@ ActiveAdmin.register Order do
   end
   
   csv do 
-    column :order_number
+    column "Order Number" do |order|
+      order.order_number
     column "Customer" do |order|
       User.find(order.customer.user_id).email
     end
