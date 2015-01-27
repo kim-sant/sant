@@ -19,4 +19,11 @@ class SessionsController < Devise::SessionsController
     end
   end
   
+  def destroy
+    if session[:cart_id].present?
+      session.delete(:cart_id)
+    end
+    super
+  end
+  
 end
