@@ -54,13 +54,13 @@ class CartsController < InheritedResources::Base
     if user_signed_in?
       redirect_to address_step_path
     else
-      redirect_to controller: 'registrations', action: 'new', callback: 'checkout'
+      redirect_to controller: 'registrations', action: 'new', callback: 'checkout', notice: "Please create a Sant account before continuing."
     end
   end
   
   def address_step
     @customer = current_user.customer
-    if @customer.cart.cart_selections.present?
+    if @customer.cart.cart_selections.present? || Cart.find(session[:cart_id]).present?
       @address = Address.new
     else
       redirect_to "/products", notice: "Please select a purchase option from the menu below."
