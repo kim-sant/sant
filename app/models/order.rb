@@ -59,4 +59,16 @@ class Order < ActiveRecord::Base
     end
     return selections
   end
+  
+  def ship_quantity
+    count = 0
+    self.order_selections.each do |selection|
+      if selection.product_id.present?
+        count = count + selection.quantity
+      else
+        count = count + 1
+      end
+    end
+    return count
+  end
 end

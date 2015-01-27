@@ -20,8 +20,8 @@ ActiveAdmin.register Order do
     column "Customer" do |order|
       User.find(order.customer.user_id).email
     end
-    column "Items" do |order|
-      order.selections_display
+    column "Ship Quantity" do |order|
+      order.ship_quantity
     end
     column "Address1" do |order|
       order.customer.address.line_1
