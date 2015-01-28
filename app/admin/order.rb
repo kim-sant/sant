@@ -25,6 +25,12 @@ ActiveAdmin.register Order do
     column "Ship Quantity" do |order|
       order.ship_quantity
     end
+    column "First Name" do |order|
+      order.customer.address.first_name
+    end
+    column "Last Name" do |order|
+      order.customer.address.last_name
+    end
     column "Address1" do |order|
       order.customer.address.line_1
     end
