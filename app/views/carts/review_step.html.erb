@@ -1,6 +1,6 @@
 <%= render 'shared/progress_bar' %>
 
-<div class="form-view">
+<div class="form-view" style='width: 300px;'>
 	
 	<% @cart.cart_selections.each do |selection| %>
 		<% if selection.product_id.present? %>
@@ -41,7 +41,7 @@
 	  <br />
 	  <br />
 	  <div class="actions">
-	    <%= f.submit "Place Order", class: "btn btn-primary" %>
+	    <%= f.submit "Place Order", class: "btn btn-primary", style: 'margin-left: 48px;' %>
 	  </div>
 	<% end %>
 </div>
