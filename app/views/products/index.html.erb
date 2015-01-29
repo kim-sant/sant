@@ -18,7 +18,7 @@
 				<% if @cart.present? && CartSelection.where(product_id: product.id).where(cart_id: @cart.id).present? %>
 					<% selection = CartSelection.where(product_id: product.id).where(cart_id: @cart.id).first %>
 					<div style='float: right; width: 80px;'>
-						<div style="color: #606060; display: inline-block; float: right; font-size: 12px; line-height: 22px;">
+						<div style="color: #DF4174; display: inline-block; float: right; font-size: 12px; font-weight: bold; line-height: 22px;">
 							<%= selection.quantity.to_words %> added
 						</div>
 						<br />
