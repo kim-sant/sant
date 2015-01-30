@@ -13,7 +13,7 @@ class SessionsController < Devise::SessionsController
       set_flash_message(:notice, :signed_in) if is_flashing_format?
       sign_in(resource_name, resource)
       yield resource if block_given?
-      redirect_to step_1_url
+      redirect_to address_step_path
     else
       super
     end
