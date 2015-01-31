@@ -11,7 +11,7 @@ class ProductsController < InheritedResources::Base
   
   def index
     @products = Product.all
-    @subscription_plans = SubscriptionPlan.all
+    @subscription_plans = SubscriptionPlan.order("price DESC")
     if user_signed_in?
       @customer = current_user.customer
       if session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
