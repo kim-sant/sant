@@ -7,22 +7,12 @@ class Customer < ActiveRecord::Base
   has_many :orders, :dependent => :destroy
   has_many :subscriptions, :dependent => :destroy
   
-  after_create :create_cart
-  
   def address
     Address.where(customer_id: self.id).where(default: true).first
   end
   
   def payment_method
     PaymentMethod.where(customer_id: self.id).where(default: true).first
-  end
-  
-  def create_cart
-    if !self.cart.present?
-      cart = Cart.new
-      cart.customer_id = self.id
-      cart.save
-    end
   end
   
 end
