@@ -18,9 +18,11 @@ class Customer < ActiveRecord::Base
   end
   
   def create_cart
-    cart = Cart.new
-    cart.customer_id = self.id
-    cart.save
+    if !self.cart.present?
+      cart = Cart.new
+      cart.customer_id = self.id
+      cart.save
+    end
   end
   
 end
