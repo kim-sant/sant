@@ -62,6 +62,12 @@ class CartsController < InheritedResources::Base
     @customer = current_user.customer
     if @customer.cart.present? && @customer.cart.cart_selections.present?
       @address = Address.new
+    elsif !@customer.present?
+      redirect_to "/products", notice: "Customer not present."
+    elsif !@customer.cart.present?
+      redirect_to "/products", notice: "Cart not present."
+    elsif !@customer.cart.cart_selections.present?
+      redirect_to "/products", notice: "Cart selections not present."
     else
       redirect_to "/products", notice: "Please select a purchase option from the menu below."
     end
