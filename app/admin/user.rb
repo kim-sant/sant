@@ -11,6 +11,11 @@ ActiveAdmin.register User do
       end
     end
     column("Email") {|user| link_to "#{user.email}", admin_user_path(user) }
+    column "Cart Items?" do |user|
+      if user.customer.cart.present? && user.customer.cart.cart_selections.present?
+        "YES"
+      end
+    end
     column :last_sign_in_at
     column :sign_in_count
     column :created_at
