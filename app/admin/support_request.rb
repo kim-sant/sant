@@ -7,6 +7,7 @@ ActiveAdmin.register SupportRequest do
       column :name
       column :email
       column :message
+      column :created_at
       actions
   end
 
