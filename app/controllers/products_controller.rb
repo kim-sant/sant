@@ -27,7 +27,6 @@ class ProductsController < InheritedResources::Base
         @cart = @customer.cart
       else
         @cart = Cart.create
-        session[:cart_id] = @cart.id
         if !@customer.subscriptions.where(active: true).present?
           selection = CartSelection.new
           selection.cart_id = @cart.id
