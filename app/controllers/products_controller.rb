@@ -27,13 +27,6 @@ class ProductsController < InheritedResources::Base
         @cart = @customer.cart
       else
         @cart = Cart.create
-        if !@customer.subscriptions.where(active: true).present?
-          selection = CartSelection.new
-          selection.cart_id = @cart.id
-          selection.subscription_plan_id = SubscriptionPlan.first.id
-          selection.quantity = 1
-          selection.save
-        end
       end
     elsif session[:cart_id].present? && Cart.where(id: session[:cart_id]).present?
       @cart = Cart.find(session[:cart_id])
