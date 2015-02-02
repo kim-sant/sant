@@ -33,11 +33,6 @@ class ProductsController < InheritedResources::Base
     else
       @cart = Cart.create
       session[:cart_id] = @cart.id
-      selection = CartSelection.new
-      selection.cart_id = @cart.id
-      selection.subscription_plan_id = SubscriptionPlan.first.id
-      selection.quantity = 1
-      selection.save
     end
   end
   
