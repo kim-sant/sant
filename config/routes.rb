@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   
   get 'cart', to: 'carts#show', as: :customer_cart
   get 'profile', to: 'customers#show', as: :profile
+  get 'domestic', to: 'carts#domestic', as: :domestic
+  get 'international', to: 'carts#international', as: :international
   
   post 'add_product_to_cart', to: 'products#add_product_to_cart', as: :add_product_to_cart
   post 'increase_quantity', to: 'carts#increase_quantity', as: :increase_quanity

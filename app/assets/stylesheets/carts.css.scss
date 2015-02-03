@@ -68,3 +68,16 @@
 	text-align: center; 
 	width: 230px;
 }
+
+#domestic-address {
+	display: block;
+}
+#domestic-address-label {
+	display: none;
+}
+#international-address {
+	display: none;
+}
+#international-address-label {
+	display: block;
+}
