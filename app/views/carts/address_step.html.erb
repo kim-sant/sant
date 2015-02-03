@@ -44,7 +44,7 @@
 		    <%= f.text_field :zip %>
 		  </div>
 		  <%= f.hidden_field :default, value: true %>
-		  <br /><br /><br /><br />
+		  <br /><br /><br /><br /><br />
 		  <div class="actions" style="clear: both; margin: 245px auto 20px auto; width: 200px; ">
 		    <%= f.submit "Continue", class: "btn btn-primary" %>
 		  </div>
@@ -98,7 +98,8 @@
 		    <%= f.text_field :country %>
 		  </div>
 		  <%= f.hidden_field :default, value: true %>
-		  <br /><br /><br /><br />
+		  <%= f.hidden_field :international, value: true %>
+		  <br /><br /><br /><br /><br />
 		  <div class="actions" style="clear: both; margin: 245px auto 20px auto; width: 200px; ">
 		    <%= f.submit "Continue", class: "btn btn-primary" %>
 		  </div>
@@ -109,6 +110,12 @@
 	</div>
 	<div id='domestic-address-label'>
 		<%= link_to 'Domestic U.S. address?', domestic_url, remote: true %>
+	</div>
+	<div id='international-fyi'>
+		* $3.95 charge for international shipments
+	</div>
+	<div id='domestic-fyi'>
+		FREE SHIPPING!
 	</div>
 </div>
 
