@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get 'earn_credit', to: 'pages#earn_credit', as: :earn_credit
   get 'faq', to: 'pages#faq', as: :faq
   
+  get "/index.html", to: "pages#homepage"
+  
   ActiveAdmin.routes(self)
   
   root to: "pages#homepage"
