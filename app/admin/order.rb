@@ -43,8 +43,11 @@ ActiveAdmin.register Order do
     column "State" do |order|
       order.customer.address.state
     end
-    column "zip" do |order|
+    column "Zip" do |order|
       order.customer.address.zip
+    end
+    column "Country" do |order|
+      order.customer.address.country
     end
   end
 
