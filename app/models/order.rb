@@ -29,6 +29,9 @@ class Order < ActiveRecord::Base
         total = total + (selection.subscription_plan.price)
       end
     end
+    if self.customer.address.international?
+      total = total + (3.95).to_f
+    end
     self.subtotal = total.to_f
     self.save
   end
