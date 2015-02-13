@@ -59,23 +59,35 @@ class CartsController < InheritedResources::Base
   end
   
   def address_step
-    @customer = current_user.customer
-    if @customer.cart.present? && @customer.cart.cart_selections.present?
-      @address = Address.new
-    elsif !@customer.present?
-      redirect_to "/products", notice: "Please select a purchase option from the menu below."
+    if user_signed_in?
+      @customer = current_user.customer
+      if @customer.cart.present? && @customer.cart.cart_selections.present?
+        @address = Address.new
+      elsif !@customer.present?
+        redirect_to "/products", notice: "Please select a purchase option from the menu below."
+      end
+    else
+      redirect_to controller: 'registrations', action: 'new', notice: "Please sign-in to your Sant account."      
     end
   end
   
   def billing_step
-    @payment_method = PaymentMethod.new
+    if user_signed_in?
+      @payment_method = PaymentMethod.new
+    else
+      redirect_to controller: 'registrations', action: 'new', notice: "Please sign-in to your Sant account."      
+    end
   end
   
   def review_step
-    @order = Order.new
-    @customer = current_user.customer
-    @cart = @customer.cart
-    @payment_method = @customer.payment_methods.first
+    if user_signed_in?
+      @order = Order.new
+      @customer = current_user.customer
+      @cart = @customer.cart
+      @payment_method = @customer.payment_methods.first
+    else
+      redirect_to controller: 'registrations', action: 'new', notice: "Please sign-in to your Sant account."      
+    end
   end
   
 end
