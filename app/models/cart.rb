@@ -8,8 +8,6 @@ class Cart < ActiveRecord::Base
     self.cart_selections.each do |selection|
       if selection.product_id.present?
         total = (total + (selection.product.price*selection.quantity)).to_f
-      else
-        total = (total + (selection.subscription_plan.price)).to_f
       end
       if self.customer.address.international?
         total = total + (3.95).to_f
