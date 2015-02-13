@@ -45,5 +45,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   root to: "pages#homepage"
+  
+  get "*path" => redirect("/")
 
 end
