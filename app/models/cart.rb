@@ -11,9 +11,6 @@ class Cart < ActiveRecord::Base
       else
         total = (total + (selection.subscription_plan.price)).to_f
       end
-      if self.customer.present? && self.customer.address.international?
-        total = total + (3.95).to_f
-      end
     end
     total
   end
