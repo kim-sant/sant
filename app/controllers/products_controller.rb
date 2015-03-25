@@ -35,6 +35,13 @@ class ProductsController < InheritedResources::Base
       session[:cart_id] = @cart.id
     end
   end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+
+    redirect_to admin_products_path
+  end
   
   def add_product_to_cart
     product = Product.find(params[:product_id])
