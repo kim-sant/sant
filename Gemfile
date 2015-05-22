@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.0"
+ruby '2.1.5'
 gem 'rails', '4.2.0'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
@@ -22,4 +22,4 @@ gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 gem 'spree_i18n', git: 'git://github.com/spree/spree_i18n.git', branch: '3-0-stable'
 # gem 'spree_account_recurring', path: '../Sant/spree_account_recurring'
-gem 'spree_simple_sales', path: '../Sant/spree_simple_sales'
+gem 'spree_simple_sales', path: '../Sant/spree_simple_sales', branch: 'master'
