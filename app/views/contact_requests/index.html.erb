@@ -1,0 +1,27 @@
+    <div class="page-header-image contact">&nbsp;
+   
+    </div>
+<h1>Listing Contact Requests</h1>
+
+<div class="requests">
+    <p>---------------------------------</p>
+  <% @contact_requests.each do |contact_request| %>
+    <div>
+      <p>Name: <%= contact_request.name %><br/>
+      Email: <%= contact_request.email %><br/>
+      <% if contact_request.phone %>
+        Phone: <%= contact_request.phone %><br/>
+      <% end %>
+      Subject: <%= contact_request.subject %><br/>
+      Date: <%= contact_request.created_at %></p>
+      <p>Issue:<br/><%= contact_request.text %></p>
+      <p><%= link_to 'Show', contact_request %> 
+        | 
+        <%= link_to 'Edit', edit_contact_request_path(contact_request) %>
+        |
+        <%= link_to 'Resolved', contact_request, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p>---------------------------------</p>
+    </div>
+  <% end %>
+</div>
+

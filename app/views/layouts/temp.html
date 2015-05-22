@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sant</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKRP2D"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MKRP2D');</script>
+  <!-- End Google Tag Manager -->
+  <div class="header">
+    <p id="notice"><%= notice %></p>
+    <p id="errors"><%= @errors %></p>
+    <%= link_to image_tag("sant-logo.png"), home_path, class: "header_icon" %>
+
+    <div class="login">
+    <ul>
+      <% if spree_current_user %>
+        <li>
+          <%= link_to 'Logout', spree_logout_path, :method => :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Login', spree_login_path %>
+        </li>
+        <li>
+          <%= link_to 'Sign Up', spree_signup_path %>
+        </li>
+      <% end %>
+        <li><%= link_to "Home", home_path %></li>
+        <li><%= link_to "Contact Us", new_contact_request_path %></li>
+        <li><%= link_to "FAQ", faq_path %></li>
+        <li><%= link_to "Recipes", recipes_path %></li>
+        <li><%= link_to 'Store', spree_path  %></li>
+        <li><%= link_to 'Tickets', contact_requests_path %></li>
+    </ul>
+  </div>
+  </div>
+
+  <%= yield %>
+
+   <div class="footer">
+    <div class="footer-group">
+      <h4>
+        Social
+      </h4>
+        <p><a href="https://www.facebook.com/idrinksant" target="_blank">Facebook</a></p>
+        <p><a href="https://twitter.com/idrinksant" target="_blank">Twitter</a></p>
+        <p><a href="https://instagram.com/idrinksant" target="_blank">Instagram</a></p>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62347605-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
+
+<!-- middle section -->
+
+
+    <!-- Sub-Menu -->
+
+    <div class="container-centered">
+        <div class="row second-menu">
+
+
+            <div class="col-3 second-menu-item">
+                <a href="#simple" class="smoothScroll icon "><span class="icon-simple"></span>Simple
+                    </a>
+            </div>
+            <div class="col-3 second-menu-item">
+                <a href="#super-healthy" class="smoothScroll icon"><span class="icon-super-healthy"></span>Super Healthy
+                    </a>
+            </div>
+            <div class="col-3 second-menu-item">
+                <a href="#sustainable" class="smoothScroll icon"><span class="icon-sustainable"></span>Sustainable
+                    </a>
+            </div>
+            <div class="col-3 second-menu-item">
+                <a href="#sant" class="smoothScroll icon"><span class="icon-sant"></span>Sant
+                    </a>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- begin Simple section -->
+
+    <div class="container section">
+        <a class="anchor" id="simple"></a>
+        <div class="row">
+            <div class="col-5">
+                <h1>Simple</h1>
+                <h3>One ingredient that you add to water</h3>
+                <p>Healthy really can be this easy</p>
+                <div class="illustration">
+                  <%= image_tag "sant-formula.png", alt: "Garcinia Indica + Water = Refreshign Fruit Infusion" %>
+                </div>
+
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <%= image_tag "circle-simple-1.png", class: "circle-img" %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-3">
+              <%= image_tag "circle-simple-2.png", class: "circle-img" %>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-5">
+                <div class="slideshow">
+                    <div>
+                      <%= image_tag "circle-simple-3-gallery-1" %>
+                    </div>
+                    <div>
+                      <%= image_tag "circle-simple-3-gallery-2" %>
+                    </div>
+                    <div>
+                      <%= image_tag "circle-simple-3-gallery-3" %>
+                    </div>
+                    <div>
+                      <%= image_tag "circle-simple-3-gallery-4" %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <h3>Customize it</h3>
+                <p>Make a light pink infusion for a subtle rose taste, a dark red infusion for a cranberry-like flavor or a sweet option by adding honey or brown sugar.</p>
+
+                <p>When you&rsquo;re re feeling adventurous, use your infusion for hot teas, organic sodas, smoothies, juices, or cocktails. Sant-gria is a party favorite. </p>
+                <div class="illustration">
+                  <%= image_tag "sant-styles.png", alt: "Customize your beverage" %>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5">&nbsp;
+            </div>
+            <div class="col-4">
+              <%= image_tag "circle-simple-4.png", class: "circle-img" %>
+            </div>
+            <div class="col-3">&nbsp;</div>
+        </div>
+
+    </div>
+
+
+    <!-- begin Super Healthy section -->
+
+    <div class="container section">
+        <a class="anchor" id="super-healthy"></a>
+
+        <div class="row">
+            <div class="col-5">
+                <h1>Super Healthy</h1>
+                <h3><span class="number">5</span>X more antioxidants than Kale  </h3>
+                <p>These super powerful antioxidants &mdash; Garcinol, HCA and Xanthones &mdash; help restore balance to the mind and body.</p>
+                <ul class="benefits">
+                    <li class="plus">Promotes digestion</li>
+                    <li class="plus">Fights bacteria</li>
+
+                    <li class="plus">Prevents infections and cell deterioration</li>
+                    <li class="plus">Regulates sleep and mood</li>
+                    <li class="plus">Manages weight and increases muscle tone</li>
+                    <li class="plus">Neutralizes PH levels</li>
+                    <li class="plus">Decreases inflamation</li>
+                    <li class="plus">Cleanses skin</li>
+                    <li class="plus">Strengthens the heart and stabilizes cholesterol</li>
+                </ul>
+
+
+                <p>Garcinia indica has been used in Ayurveda for centuries to prevent and treat illnesses.</p>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <%= image_tag "circle-super-healthy-1.png", class: "circle-img" %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <%= image_tag "circle-super-healthy-2.png", class: "circle-img" %>
+            </div>
+            <div class="col-2">&nbsp;</div>
+            <div class="col-5">
+                <h3>All Natural.  Tons of good stuff;<br /> no bad stuff</h3>
+                <ul class="benefits">
+                    <li class="plus">Vitamins B &amp; C, potassium, manganese &amp; magnesium</li>
+                    <li class="plus">Only 5 calories and 3 grams of sugar</li>
+                    <li class="plus">Naturally sun-dried. No preservatieves</li>
+                    <li class="plus">No added dyes or flavors. No additives, period.</li>
+                </ul>
+
+                <div class="healthy-icons">
+                    <div>
+                      <%= image_tag "gluten-free.png", alt: "gluten free" %>
+                    </div>
+                    <div>
+                      <%= image_tag "non-gmo.png", alt: "non-gmo" %>
+                    </div>
+                    <div>
+                      <%= image_tag "vegan.png", alt: "vegan" %>
+                    </div>
+                    <div>
+                      <%= image_tag "organic.png", alt: "organic" %>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">&nbsp;
+            </div>
+            <div class="col-4">
+              <%= image_tag "circle-super-healthy-3.png", class: "circle-img", alt: "Runner tying shoes with Sant bottle" %>
+            </div>
+            <div class="col-3">&nbsp;</div>
+        </div>
+    </div>
+
+    <!-- Begin Sustainable Section -->
+
+    <div class="container section-2">
+        <a class="anchor" id="sustainable"></a>
+        <div class="row">
+            <div class="col-5">
+                <h1>Sustainable</h1>
+                <h3>Working directly with farmers and women&rsquo;s empowerment groups in India</h3>
+                <p>60% of the Garcinia indica crop once went to waste each year, yet the farming families in these rural communities weren&rsquo;t able to make a sufficient living.</p>
+                <p> Not anymore. Now, working with Sant, families are able to harvest Garcinia indica. You get a super healthy beverage and communities get vital livelihood opportunities. </p>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+              <%= image_tag "circle-sustainable-1.png", class: "circle-img", alt: "Happy Farmer" %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+              <%= image_tag "circle-sustainable-2.png", class: "circle-img", alt: "Reusable Bottles" %>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <h3>Drinking from re-useable bottles</h3>
+                <p>Disposable bottles are a problem. And you&rsquo;re a problem solver. So with Sant, you get to enjoy beverages from your re-useable glass or bottle. It&rsquo;s healthier for you and your environment. Plus, disposable bottles are trashy. They&rsquo;re literally trash. </p>
+                <div class="illustration">
+                  <%= image_tag "sustainable-bottles.png", alt: "1 pouch + Your re-usable bottle or glass = Up to 100 disposable bottles" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Begin Sant section -->
+
+
+    <div class="container-flex balance">
+        <div class="container">
+
+            <a class="anchor" id="sant"></a>
+            <div class="row">
+                <div class="row-no-margin">
+                    <div class="col-5">
+
+                    </div>
+                    <div class="col-2">&nbsp;</div>
+                    <div class="col-5">
+                        <div class="vc-balance">
+                            <div>
+                                <h1>Sant</h1>
+                                <h3>Balance in minds bodies communities and the environment</h3>
+                                <p>Sant is short for Santulan, which means balance. We didn&rsquo;t pick balance just because we like standing on our heads. The name fits, since we create experiences that promote balance in minds, bodies, communities, and the environment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

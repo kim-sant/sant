@@ -1,0 +1,67 @@
+    <!--Begin Footer -->
+    <footer>
+        <div class="footer-logo">
+          <%= image_tag "sant-logo.png", alt: "Sant" %>        </div>
+        <div class="row-no-margin footer-social">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
+                        <a href="https://www.facebook.com/idrinksant" class="icon" target="_blank"> <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="https://twitter.com/idrinksant" class="icon" target="_blank"> <i class="fa fa-twitter"></i> </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="https://instagram.com/idrinksant" class="icon" target="_blank"> <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-3"><a href="http://pinterest.com/idrinksant" class="icon" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-no-margin footer-nav">
+            <div class="container">
+                <div class="col-12 ">
+                    <ul>
+                        <li>
+                          <%= link_to "Shop", spree_path %>
+                        </li>
+                        <li>
+                          <%= link_to "Our Story", story_path %>
+                        </li>
+                        <li>
+                          <%= link_to "Sant Sessions" , sessions_path %>
+                        </li>
+                        <li>
+                          <%= link_to "Recipes", recipes_path %>
+                        </li>
+                        <li>
+                          <%= link_to "FAQs", faq_path %>
+                        </li>
+                        <li>
+                          <%= link_to "Contact Us", new_contact_request_path %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row-no-margin footer-legal">
+            <div class="container">
+                <div class="col-12">
+                    <ul>
+                        <li>
+                          <%= link_to "Terms of Usage", terms_path %>
+                        </li>
+                        <li>
+                          <%= link_to "Privacy Policy", privacy_path %>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <p class="copyright">&copy;2014-2015 Sant. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>

@@ -1,23 +1,7 @@
 module ApplicationHelper
-  
-  def meta_keywords(tags = nil)
-    if tags.present?
-      content_for :meta_keywords, tags
-    else
-      content_for?(:meta_keywords) ? content_for(:meta_keywords) : "Sant, idrinksant, superfruit beverage, superfruit recipe, superfood, yoga, superfruit tea"
+  def image_link_to(image_path, url, image_tag_options = { }, link_to_options = { })
+    link_to url, link_to_options do
+      image_tag image_path, image_tag_options
     end
   end
-
-  def meta_description(desc = nil)
-    if desc.present?
-      content_for :meta_description, desc
-    else
-      content_for?(:meta_description) ? content_for(:meta_description) : "The dried superfruit that transforms into a fresh beverage."
-    end
-  end
-
-  def construction
-    redirect to ""
-  end
-  
 end

@@ -1,0 +1,32 @@
+    <div class="page-header-image contact">&nbsp;
+   
+    </div>
+<p>
+  <strong>Name:</strong>
+  <%= @contact_request.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact_request.email %>
+</p>
+
+<% if @contact_request.phone %>
+  <p>
+    <strong>Phone:</strong>
+    <%= @contact_request.phone %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @contact_request.subject %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @contact_request.text %>
+</p>
+
+<%= link_to 'Edit', edit_contact_request_path(@contact_request) %> |
+<%= link_to 'Back', contact_requests_path %>

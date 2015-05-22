@@ -1,0 +1,64 @@
+<!--Begin Top Navigation -->
+    <div class="container-flex navbar">
+        <div class="container nav">
+            <div class="row">
+                <div class="col-2 nav-logo">
+                    <%= image_link_to "sant-logo.png", home_path %>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-9">
+                    <ul class="nav-main">
+                        <li>
+                          <%= link_to "Shop Sant", spree_path %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "Our Story", story_path %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "Sant Sessions", sessions_path %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "Recipes", recipes_path %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "FAQs", faq_path %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle Responsive Menu for smaller screens -->
+    <div class="mobile-nav">
+        <div class="mobile-logo">
+            <%= image_link_to "sant-logo.png", "/home.html" %>
+        </div>
+        <div class="menu-btn" id="menu-btn">
+            <div></div>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="responsive-menu">
+            <ul>
+                <li>
+                  <%= link_to "Shop Sant", spree_path %>
+                </li>
+                <li>
+                  <%= link_to "Our Story", story_path %>
+                </li>
+                <li>
+                  <%= link_to "Sant Sessions", sessions_path %>
+                </li>
+                  <%= link_to "Recipes", recipes_path %>
+                </li>
+                  <%= link_to "FAQs", faq_path %>
+                </li>
+            </ul>
+        </div>
+    </div>

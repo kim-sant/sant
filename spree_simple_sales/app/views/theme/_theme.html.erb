@@ -1,0 +1,190 @@
+
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+    <%= render partial: 'spree/shared/google_analytics.js' %>
+    <!--Begin Top Navigation -->
+    <div class="container-flex navbar">
+        <div class="container nav">
+            <div class="row">
+                <div class="col-2 nav-logo">
+                    <%= image_link_to "sant-logo.png", '/home' %>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-9">
+                    <ul class="nav-main">
+                        <li>
+                          <%= link_to 'Shop', spree.root_path %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "Our Story", '/story' %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "Sant Sessions", '/sessions' %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "Recipes", '/reciepes' %>
+                        </li>
+                        <li>&#8226;</li>
+                        <li>
+                          <%= link_to "FAQs", '/faq' %>
+                        </li>
+                        <li>&#8226;</li>
+                        <!-- login/signup -->
+                        <% if spree_current_user %>
+                          <li><%= link_to Spree.t(:my_account), spree.account_path %></li>
+                          <li>&#8226;</li>
+                          <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
+                        <% else %>
+                          <li id="link-to-login"><%= link_to Spree.t(:login), spree.login_path %></li>
+                        <% end %>
+                        <!-- end of login/signup -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toggle Responsive Menu for smaller screens -->
+    <div class="mobile-nav">
+        <div class="mobile-logo">
+            <%= image_link_to "sant-logo.png", "/home.html" %>
+        </div>
+        <div class="menu-btn" id="menu-btn">
+            <div></div>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="responsive-menu">
+            <ul>
+                <li>
+                  <%= link_to 'Shop', spree.root_path %>
+                </li>
+                <li>
+                  <%= link_to "Our Story", '/story' %>
+                </li>
+                <li>
+                  <%= link_to "Sant Sessions", '/sessions' %>
+                </li>
+                <li>
+                  <%= link_to "Recipes", '/reciepes' %>
+                </li>
+                <li>
+                  <%= link_to "FAQs", '/faq' %>
+                </li>
+                <!-- login/signup -->
+                <% if spree_current_user %>
+                  <li><%= link_to Spree.t(:my_account), spree.account_path %></li>
+                  <li><%= link_to Spree.t(:logout), spree.logout_path %></li>
+                <% else %>
+                  <li id="link-to-login"><%= link_to Spree.t(:login), spree.login_path %></li>
+                <% end %>
+                <!-- end of login/signup -->
+            </ul>
+        </div>
+    </div>
+
+    
+<!-- cart -->
+        <ul class="nav navbar-nav navbar-right" data-hook>
+          <li id="link-to-cart" data-hook>
+            <noscript>
+              <%= link_to Spree.t(:cart), '/cart' %>
+            </noscript>
+            &nbsp;
+          </li>
+          <script>Spree.fetch_cart()</script>
+        </ul>
+<!-- end of cart -->
+
+    <div class="no-row-margin spree-header-space"></div>
+
+<!-- original info for spree -->
+
+    <div class="container sant-spree-container">
+      <div class="row" data-hook>
+        <%= breadcrumbs(@taxon) %>
+
+
+        <div id="content" class="<%= !content_for?(:sidebar) ? "col-sm-12" : "col-sm-8 col-md-9" %>" data-hook>
+          <%= flash_messages %>
+          <%= yield %>
+        </div>
+
+        <%= yield :templates %>
+      </div>
+    </div>
+  <!-- </body> not needed for spree -->
+
+      <!--Begin Footer -->
+    <footer>
+        <div class="footer-logo">
+          <%= image_tag "sant-logo.png", alt: "Sant" %>        </div>
+        <div class="row-no-margin footer-social">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">
+                        <a href="https://www.facebook.com/idrinksant" class="icon" target="_blank"> <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://twitter.com/idrinksant" class="icon" target="_blank"> <i class="fa fa-twitter"></i> </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://instagram.com/idrinksant" class="icon" target="_blank"> <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-1"><a href="http://pinterest.com/idrinksant" class="icon" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-no-margin footer-nav">
+            <div class="container">
+                <div class="col-12 ">
+                    <ul>
+                        <li>
+                          <%= link_to 'Shop', spree.root_path %>
+                        </li>
+                        <li>
+                          <%= link_to "Our Story", '/story' %>
+                        </li>
+                        <li>
+                          <%= link_to "Sant Sessions" , '/sessions' %>
+                        </li>
+                        <li>
+                          <%= link_to "Recipes", '/recipes' %>
+                        </li>
+                        <li>
+                          <%= link_to "FAQs", '/faq' %>
+                        </li>
+                        <li>
+                          <%= link_to "Contact Us", '/contactus' %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row-no-margin footer-legal">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                    <ul>
+                        <li>
+                          <%= link_to "Terms of Usage", '/terms' %>
+                        </li>
+                        <li>
+                          <%= link_to "Privacy Policy", '/privacy' %>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+              <div class="col-12">
+                  <p class="copyright">&copy;2014-2015 Sant. All rights reserved.</p>
+              </div>
+            </div>
+        </div>
+    </footer>
+</body>

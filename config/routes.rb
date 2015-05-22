@@ -1,55 +1,41 @@
 Rails.application.routes.draw do
 
-  root 'transfer#construction'
+  # This line mounts Spree's routes at the root of your application.
+  # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
+  # If you would like to change where this engine is mounted, simply change the :at option to something different.
+  #
+  # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
+  # mount Spree::Core::Engine, :at => '/'
+        
+  # This line mounts Spree's routes at the root of your application.
+  # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
+  # If you would like to change where this engine is mounted, simply change the :at option to something different.
+  #
+  # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
+  
+  root 'tabs#home'
 
-  get '/construction', to: 'transfer#construction', as: 'construction'
+  get '/home', to: 'tabs#home', as: 'home'
+  get '/story', to: 'tabs#story', as: 'story'
+  get '/recipes', to: 'tabs#recipes', as: 'recipes'
+  get '/faq', to: 'tabs#faq', as: 'faq'
+  get '/contact', to: 'tabs#contact', as: 'contact'
+  get '/privacy', to: 'tabs#privacy', as: 'privacy'
+  get '/sessions', to: 'tabs#sessions', as: 'sessions'
+  get '/terms', to: 'tabs#terms', as: 'terms'
+  get '/contactus', to: 'contact_requests#new', as: 'new_contact_request'
 
-  resources :support_requests
+  get '/contact_requests', to: 'contact_requests#index', as: 'contact_requests'
+  post '/contact_requests', to: 'contact_requests#create'
+  get '/contact_requests/:id', to: 'contact_requests#show', as: 'contact_request'
+  get '/contact_requests/:id/edit', to: 'contact_requests#edit', as: 'edit_contact_request'
+  patch '/contact_requests/:id', to: 'contact_requests#update'
+  put '/contact_requests/:id', to: 'contact_requests#update'
+  delete '/contact_requests/:id', to: 'contact_requests#destroy'
 
-  resources :carts
-  resources :orders
-  resources :products
-  resources :customers
-  resources :addresses
+  mount Spree::Core::Engine, :at => '/store'
   
-  resources :payment_methods do
-    get 'checkout/billing', on: :new
-  end
-
-  devise_for :users,
-             controllers: { registrations: 'registrations', sessions: 'sessions' }
-  
-  get 'cart', to: 'carts#show', as: :customer_cart
-  get 'profile', to: 'customers#show', as: :profile
-  get 'domestic', to: 'carts#domestic', as: :domestic
-  get 'international', to: 'carts#international', as: :international
-  
-  post 'add_product_to_cart', to: 'products#add_product_to_cart', as: :add_product_to_cart
-  post 'increase_quantity', to: 'carts#increase_quantity', as: :increase_quanity
-  post 'decrease_quantity', to: 'carts#decrease_quantity', as: :descrease_quantity
-  post 'add_plan_to_cart', to: 'products#add_plan_to_cart', as: :add_plan_to_cart
-  post 'remove_plan_from_cart', to: 'products#remove_plan_from_cart', as: :remove_plan_from_cart
-  post 'checkout', to: 'carts#checkout', as: :checkout
-  
-  post '/address_update', to: 'addresses#address_update', as: 'address_update'
-  post '/billing_update', to: 'payment_methods#billing_update', as: 'billing_update'
-  post '/create_order', to: 'orders#create_order', as: 'create_order'
-  
-  get 'checkout/address', to: 'carts#address_step', as: :address_step
-  get 'checkout/billing', to: 'carts#billing_step', as: :billing_step
-  get 'checkout/review', to: 'carts#review_step', as: :review_step
-  
-  get 'about', to: 'pages#about', as: :about
-  get 'recipes', to: 'pages#recipes', as: :recipes
-  get 'earn_credit', to: 'pages#earn_credit', as: :earn_credit
-  get 'faq', to: 'pages#faq', as: :faq
-  
-  get "/index.html", to: "pages#homepage"
-  
-  ActiveAdmin.routes(self)
-  
-  root to: "pages#homepage"
-  
-  get "*path" => redirect("/")
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
 
 end

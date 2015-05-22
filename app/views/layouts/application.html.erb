@@ -1,71 +1,37 @@
+<!Doctype html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-	  	<title><%= content_for?(:title) ? yield(:title) : "Sant - the infusible superfruit" %></title>
-		<meta name="description" content="<%= meta_description %>" />
-		<meta name="keywords" content="<%= meta_keywords %>" />
-		
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag 'https://js.stripe.com/v2/', 'application', 'data-turbolinks-track' => true %>
-		<%= csrf_meta_tags %>
-		<%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Roboto' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
-		
-		<% no_header = ['/checkout/address', '/checkout/billing', '/checkout/review', '/checkout/billing'] %>
-		<% no_notices = ['/checkout/address', '/checkout/billing', '/checkout/review', '/checkout/billing'] %>
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-58894872-1', 'auto');
-		  ga('send', 'pageview');
+<head>
+    <title>Sant - The Infusable Superfruit</title>
+    <meta name="description" content="The dried superfruit that transforms into a fresh beverage.">
+    <meta name="keywords" content="Sant, idrinksant, superfruit beverage, superfruit recipe, superfood, yoga, superfruit tea">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+</head>
 
-		</script>
-	</head>
-	<body>
-		<% if !no_header.include? @current_uri %>
-			<%= render "shared/header" %>
-		<% end %>
-		
-		<div class="container" style="min-height: 500px;">	
-			
-			<% if !no_header.include? @current_uri %>
-				<% if notice.present? %>
-					<p class="notice"><%= notice %></p>
-				<% end %>
-				<% if alert.present? %>
-					<p class="alert"><%= alert %></p>
-				<% end %>
-			<% end %>
-			
-			<%= yield %>
-			
-		</div>
-		
-		<%= render "shared/footer" %>
+<body>
+    <a id="top"></a>
     
-    <script type="text/javascript">
-      /* <![CDATA[ */
-      var google_conversion_id = 970768666;
-      var google_custom_params = window.google_tag_params;
-      var google_remarketing_only = true;
-      /* ]]> */
-      </script>
-      <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-      </script>
-      <noscript>
-      <div style="display:inline;">
-      <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/970768666/?value=0&amp;guid=ON&amp;script=0"/>
-      </div>
-    </noscript>
-	</body>
-</html>
+    <%= render "layouts/navbar" %>
 
-<script>
-  $('.notice').delay(3000).fadeOut();
-  $('.alert').delay(3000).fadeOut();
-</script>
+    <%= yield %>
+
+    <%= render "layouts/footer" %>
+
+    <!--back to top -->
+    <a href="#top" class="cd-top smoothScroll">Top</a>
+
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKRP2D"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MKRP2D');</script>
+    <!-- End Google Tag Manager -->
+</body>
+
+</html>

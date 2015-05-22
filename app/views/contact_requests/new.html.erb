@@ -1,0 +1,53 @@
+    <!-- begin Contact Page -->
+    <div class="page-header-image contact">&nbsp;
+   
+    </div>
+    <div class="container page">    
+    <h1>Contact Us</h1>    
+      
+
+      <%= form_for(@contact_request) do |f| %>
+        <% if @contact_request.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@contact_request.errors.count, "error") %> prohibited this contact_request from being saved:</h2>
+
+            <ul>
+            <% @contact_request.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+            <%= f.label :email %><br>
+          <% if spree_current_user == nil %>
+            <%= f.text_field :email %>
+          <% else %>
+            <%= f.text_field :email, value: "#{spree_current_user.email}" %>
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.label :phone %><br>
+          <%= f.text_field :phone %>
+        </div>
+        <div class="field">
+          <%= f.label :subject %><br>
+          <%= f.select :subject, options_for_select([["Info Request", "Info Request"], ["Billing Issue", "Billing Issue"], ["Technical Problem", "Technical Problem"], ["Contact Us", "Contact Us"]]), :include_blank => true %>
+        </div>
+        <div class="field">
+          <%= f.label :text %><br>
+          <%= f.text_area :text %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+     
+    </div>  
+    <!-- end Contact Page -->
