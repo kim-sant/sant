@@ -15,5 +15,9 @@ module ApplicationHelper
       content_for?(:meta_description) ? content_for(:meta_description) : "The dried superfruit that transforms into a fresh beverage."
     end
   end
+
+  def construction
+    redirect to ""
+  end
   
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  root 'transfer#construction'
+
+  get '/construction', to: 'transfer#construction', as: 'construction'
+
   resources :support_requests
 
   resources :carts
