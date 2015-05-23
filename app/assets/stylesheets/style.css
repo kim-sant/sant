@@ -1297,7 +1297,7 @@ RECIPES PAGE STYLES
 **/
 .recipes {
   /** image for recipes page **/
-  background-image: url("slider-endless-possibilities.png") no-repeat center center;
+  background: #02ace3 url("slider-endless-possibilities.png") no-repeat center center;
   background-size: cover;
 }
 
