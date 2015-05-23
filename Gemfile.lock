@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/kim-sant/sant.git
+  revision: 52c5aff5ce48e5811e0693f1e84c32733b71b74a
+  branch: master
+  specs:
+    spree_simple_sales (3.0.0)
+      spree_core (~> 3.0.0)
+
+GIT
   remote: git://github.com/spree/spree_auth_devise.git
   revision: 347428395b8c06c79c3bfe516404314a1c365839
   branch: 3-0-stable
@@ -28,12 +36,6 @@ GIT
       globalize (~> 5.0.1)
       i18n_data (~> 0.5.1)
       rails-i18n (~> 4.0.1)
-      spree_core (~> 3.0.0)
-
-PATH
-  remote: ../Sant/spree_simple_sales
-  specs:
-    spree_simple_sales (3.0.0)
       spree_core (~> 3.0.0)
 
 GEM
