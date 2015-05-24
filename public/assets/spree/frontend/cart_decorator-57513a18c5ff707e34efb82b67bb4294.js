@@ -1,0 +1,1 @@
+(function(){Spree.fetch_cart=function(){return $.ajax({url:Spree.pathFor("/cart_link"),cache:!1,success:function(t){return $("#link-to-cart").html(t)}})}}).call(this);

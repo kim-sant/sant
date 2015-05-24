@@ -1,0 +1,1 @@
+(function(){$(function(){return $("#locale-select select").change(function(){return $.ajax({type:"POST",url:$(this).data("href"),data:{locale:$(this).val(),authenticity_token:$('#locale-select input[name="authenticity_token"]').val()}}).done(function(){return window.location.reload()})})})}).call(this);
