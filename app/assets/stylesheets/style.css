@@ -555,7 +555,7 @@ HOME PAGE
   transition: all .2s ease-in-out;
 }
 .second-menu .icon:hover .icon-simple, .second-menu .icon .icon-simple:hover .icon-simple, .second-menu .icon .icon-super-healthy:hover .icon-simple, .second-menu .icon .icon-sustainable:hover .icon-simple, .second-menu .icon .icon-sant:hover .icon-simple {
-  background-image: image-url("icon-simple-hover.png") no-repeat center center;
+  background: url("icon-simple-hover.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover .icon-super-healthy, .second-menu .icon .icon-simple:hover .icon-super-healthy, .second-menu .icon .icon-super-healthy:hover .icon-super-healthy, .second-menu .icon .icon-sustainable:hover .icon-super-healthy, .second-menu .icon .icon-sant:hover .icon-super-healthy {
@@ -1069,7 +1069,7 @@ HOME PAGE
 }
 /** DEFINE SLIDE IMAGES IN THE "background" PROPERTY. ADDING NEW SLIDES REQUIRES EDITING THE HTML FILE**/
 .slide-1 {
-  background: url("intro-slide.jpg") no-repeat center center;
+  background: url( <%= asset_path 'intro-slide.jpg' %>) no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
