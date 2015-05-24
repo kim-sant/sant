@@ -530,22 +530,22 @@ HOME PAGE
 }
 .second-menu .icon .icon-simple {
   margin-bottom: 10px;
-  background: url("icon-simple.png") no-repeat center center;
+  background: url("icon-sant-bc32e2f37f47b90a2b61f01713437c8c.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon .icon-super-healthy {
   margin-bottom: 10px;
-  background: url("icon-super-healthy.png") no-repeat center center;
+  background: url("icon-super-healthy-af6400aafade8f98a0a24a668d271416.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon .icon-sustainable {
   margin-bottom: 10px;
-  background: url("icon-sustainable.png") no-repeat center center;
+  background: url("icon-sustainable-d3675852478623072bebc1cf9a8c0454.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon .icon-sant {
   margin-bottom: 10px;
-  background: url("icon-sant.png") no-repeat center center;
+  background: url("icon-sant-bc32e2f37f47b90a2b61f01713437c8c.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover, .second-menu .icon .icon-simple:hover, .second-menu .icon .icon-super-healthy:hover, .second-menu .icon .icon-sustainable:hover, .second-menu .icon .icon-sant:hover {
@@ -555,23 +555,19 @@ HOME PAGE
   transition: all .2s ease-in-out;
 }
 .second-menu .icon:hover .icon-simple, .second-menu .icon .icon-simple:hover .icon-simple, .second-menu .icon .icon-super-healthy:hover .icon-simple, .second-menu .icon .icon-sustainable:hover .icon-simple, .second-menu .icon .icon-sant:hover .icon-simple {
-<<<<<<< HEAD
-  background: url("icon-simple-hover.png") no-repeat center center;
-=======
-  background: image-url("icon-simple-hover.png") no-repeat center center;
->>>>>>> parent of be07df7... css test 2:
+  background: url("icon-simple-hover-c66352147dccbfc003708bfddc9a196a.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover .icon-super-healthy, .second-menu .icon .icon-simple:hover .icon-super-healthy, .second-menu .icon .icon-super-healthy:hover .icon-super-healthy, .second-menu .icon .icon-sustainable:hover .icon-super-healthy, .second-menu .icon .icon-sant:hover .icon-super-healthy {
-  background: url("icon-super-healthy-hover.png") no-repeat center center;
+  background: url("icon-super-healthy-hover-96a24f90a49ec1afa1bac948c5fc30eb.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover .icon-sustainable, .second-menu .icon .icon-simple:hover .icon-sustainable, .second-menu .icon .icon-super-healthy:hover .icon-sustainable, .second-menu .icon .icon-sustainable:hover .icon-sustainable, .second-menu .icon .icon-sant:hover .icon-sustainable {
-  background: url("icon-sustainable-hover.png") no-repeat center center;
+  background: url("icon-sustainable-hover-bc7d69b91991aa031a869ad3d4813e30.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover .icon-sant, .second-menu .icon .icon-simple:hover .icon-sant, .second-menu .icon .icon-super-healthy:hover .icon-sant, .second-menu .icon .icon-sustainable:hover .icon-sant, .second-menu .icon .icon-sant:hover .icon-sant {
-  background: url("icon-sant-hover.png") no-repeat center center;
+  background: url("icon-simple-hover-c66352147dccbfc003708bfddc9a196a.png") no-repeat center center;
   background-size: contain;
 }
 
@@ -1080,21 +1076,21 @@ HOME PAGE
 }
 
 .slide-2 {
-  background: url("slider-garcinia-indica.png") no-repeat center center;
+  background: url("slider-garcinia-indica-9f1e20b6dff2a690c0e9237fe436e6ad.png") no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
 }
 
 .slide-3 {
-  background: url("slider-infuse-it.png") no-repeat center center;
+  background: url("slider-infuse-it-97334d08bca973c18a7f0a18bde2accf.png") no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
 }
 
 .slide-4 {
-  background: url("slider-endless-possibilities.png") no-repeat center center;
+  background: url("slider-endless-possibilities-530bf7eb03f68eaca14fd17699ebe081.png") no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -1266,7 +1262,7 @@ HOME PAGE
 }
 
 .balance {
-  background: url("sant-balance.png") no-repeat bottom center;
+  background: url("sant-balance-da860bd27671ae4d162726629d164cc4.png") no-repeat bottom center;
   background-attachment: scroll;
   background-size: cover;
   height: 700px;
@@ -1279,7 +1275,7 @@ STORY PAGE STYLES
 **/
 .story {
   /**image for story page**/
-  background: #02ace3 url("story-header.png") no-repeat center center;
+  background: #02ace3 url("story-header-3b7839ce6940c76e7cafc2959e9df4b6.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1290,7 +1286,7 @@ SESSIONS PAGE STYLES
 **/
 .sessions {
   /**image for sessions page**/
-  background: #02ace3 url("sessions-header.jpg") no-repeat top center;
+  background: #02ace3 url("sessions-header-26f3266807df7402e2be1675de3c26b0.jpg") no-repeat top center;
   background-size: cover;
 }
 
@@ -1364,7 +1360,7 @@ FAQ PAGE STYLES
 **/
 .faq {
   /** image for faq page **/
-  background: #02ace3 url("faq-header.png") no-repeat center center;
+  background: #02ace3 url("faq-header-d5165d7d6ba9da00ee0dd72034e4a07d.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1437,7 +1433,7 @@ CONTACT PAGE STYLES
 **/
 .contact {
   /**image for contact page **/
-  background: #02ace3 url("contact-header.png") no-repeat center center;
+  background: #02ace3 url("contact-header-1e53693fe52ca871a1085512baa3b21d.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1448,7 +1444,7 @@ TERMS OF USE PAGE
 **/
 .terms {
   /** image for terms page **/
-  background: #02ace3 url("intro-slide.jpg") no-repeat center center;
+  background: #02ace3 url("intro-slide-f2696224d1e3a44c13922e81426eb669.jpg") no-repeat center center;
   background-size: cover;
 }
 
@@ -1459,7 +1455,7 @@ PRIVACY POLICY PAGE
 **/
 .privacy {
   /**image for privacy page**/
-  background: #02ace3 url("intro-slide.jpg") no-repeat center center;
+  background: #02ace3 url("intro-slide-f2696224d1e3a44c13922e81426eb669.jpg") no-repeat center center;
   background-size: cover;
 }
 
@@ -1575,7 +1571,7 @@ footer .footer-legal .copyright {
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: #dedede url("cd-top-arrow.svg") no-repeat center 50%;
+  background: #dedede url("cd-top-arrow-0507854d24d15df289478f66cd63f1bd.svg") no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
