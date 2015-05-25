@@ -530,22 +530,22 @@ HOME PAGE
 }
 .second-menu .icon .icon-simple {
   margin-bottom: 10px;
-  background: url("icon-simple.png") no-repeat center center;
+  background: image-url("icon-simple.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon .icon-super-healthy {
   margin-bottom: 10px;
-  background: url("icon-super-healthy.png") no-repeat center center;
+  background: image-url("icon-super-healthy.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon .icon-sustainable {
   margin-bottom: 10px;
-  background: url("icon-sustainable.png") no-repeat center center;
+  background: image-url("icon-sustainable.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon .icon-sant {
   margin-bottom: 10px;
-  background: url("icon-sant.png") no-repeat center center;
+  background: image-url("icon-sant.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover, .second-menu .icon .icon-simple:hover, .second-menu .icon .icon-super-healthy:hover, .second-menu .icon .icon-sustainable:hover, .second-menu .icon .icon-sant:hover {
@@ -555,19 +555,19 @@ HOME PAGE
   transition: all .2s ease-in-out;
 }
 .second-menu .icon:hover .icon-simple, .second-menu .icon .icon-simple:hover .icon-simple, .second-menu .icon .icon-super-healthy:hover .icon-simple, .second-menu .icon .icon-sustainable:hover .icon-simple, .second-menu .icon .icon-sant:hover .icon-simple {
-  background: url("icon-simple-hover.png") no-repeat center center;
+  background: image-url("icon-simple-hover.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover .icon-super-healthy, .second-menu .icon .icon-simple:hover .icon-super-healthy, .second-menu .icon .icon-super-healthy:hover .icon-super-healthy, .second-menu .icon .icon-sustainable:hover .icon-super-healthy, .second-menu .icon .icon-sant:hover .icon-super-healthy {
-  background: url("icon-super-healthy-hover.png") no-repeat center center;
+  background: image-url("icon-super-healthy-hover.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover .icon-sustainable, .second-menu .icon .icon-simple:hover .icon-sustainable, .second-menu .icon .icon-super-healthy:hover .icon-sustainable, .second-menu .icon .icon-sustainable:hover .icon-sustainable, .second-menu .icon .icon-sant:hover .icon-sustainable {
-  background: url("icon-sustainable-hover.png") no-repeat center center;
+  background: image-url("icon-sustainable-hover.png") no-repeat center center;
   background-size: contain;
 }
 .second-menu .icon:hover .icon-sant, .second-menu .icon .icon-simple:hover .icon-sant, .second-menu .icon .icon-super-healthy:hover .icon-sant, .second-menu .icon .icon-sustainable:hover .icon-sant, .second-menu .icon .icon-sant:hover .icon-sant {
-  background: url("icon-sant-hover.png") no-repeat center center;
+  background: image-url("icon-sant-hover.png") no-repeat center center;
   background-size: contain;
 }
 
@@ -1076,21 +1076,21 @@ HOME PAGE
 }
 
 .slide-2 {
-  background: url("slider-garcinia-indica.png") no-repeat center center;
+  background: image-url("slider-garcinia-indica.png") no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
 }
 
 .slide-3 {
-  background: url("slider-infuse-it.png") no-repeat center center;
+  background: image-url("slider-infuse-it.png") no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
 }
 
 .slide-4 {
-  background: url("slider-endless-possibilities.png") no-repeat center center;
+  background: image-url("slider-endless-possibilities.png") no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -1247,7 +1247,7 @@ HOME PAGE
 }
 
 .sustainable-farmer {
-  background: url("sustainable-farmer.png") no-repeat center center;
+  background: image-url("sustainable-farmer.png") no-repeat center center;
   background-size: contain;
 }
 
@@ -1262,7 +1262,7 @@ HOME PAGE
 }
 
 .balance {
-  background: url("sant-balance.png") no-repeat bottom center;
+  background: image-url("sant-balance.png") no-repeat bottom center;
   background-attachment: scroll;
   background-size: cover;
   height: 700px;
