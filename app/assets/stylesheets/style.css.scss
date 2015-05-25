@@ -1275,7 +1275,7 @@ STORY PAGE STYLES
 **/
 .story {
   /**image for story page**/
-  background: #02ace3 url("story-header.png") no-repeat center center;
+  background: #02ace3 image-url("story-header.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1286,7 +1286,7 @@ SESSIONS PAGE STYLES
 **/
 .sessions {
   /**image for sessions page**/
-  background: #02ace3 url("sessions-header.jpg") no-repeat top center;
+  background: #02ace3 image-url("sessions-header.jpg") no-repeat top center;
   background-size: cover;
 }
 
@@ -1297,7 +1297,7 @@ RECIPES PAGE STYLES
 **/
 .recipes {
   /** image for recipes page **/
-  background: #02ace3 url("slider-endless-possibilities.png") no-repeat center center;
+  background: #02ace3 image-url("slider-endless-possibilities.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1360,7 +1360,7 @@ FAQ PAGE STYLES
 **/
 .faq {
   /** image for faq page **/
-  background: #02ace3 url("faq-header.png") no-repeat center center;
+  background: #02ace3 image-url("faq-header.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1433,7 +1433,7 @@ CONTACT PAGE STYLES
 **/
 .contact {
   /**image for contact page **/
-  background: #02ace3 url("contact-header.png") no-repeat center center;
+  background: #02ace3 image-url("contact-header.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -1444,7 +1444,7 @@ TERMS OF USE PAGE
 **/
 .terms {
   /** image for terms page **/
-  background: #02ace3 url("intro-slide.jpg") no-repeat center center;
+  background: #02ace3 image-url("intro-slide.jpg") no-repeat center center;
   background-size: cover;
 }
 
@@ -1455,7 +1455,7 @@ PRIVACY POLICY PAGE
 **/
 .privacy {
   /**image for privacy page**/
-  background: #02ace3 url("intro-slide.jpg") no-repeat center center;
+  background: #02ace3 image-url("intro-slide.jpg") no-repeat center center;
   background-size: cover;
 }
 
@@ -1571,7 +1571,7 @@ footer .footer-legal .copyright {
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: #dedede url("cd-top-arrow.svg") no-repeat center 50%;
+  background: #dedede image-url("cd-top-arrow.svg") no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
