@@ -17,3 +17,5 @@
 /tmp
 
 server.key
+server.crt
+server.csr
